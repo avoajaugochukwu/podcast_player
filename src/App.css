@@ -33,6 +33,21 @@
   background-color: #121216;
 }
 
+.home-screen-truncate-collection-name {
+  /* overflow: hidden;
+  max-height: 2em;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box; */
+
+  /* width: 250px; */
+  max-height: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .truncate-description {
   
