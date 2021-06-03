@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+
+.player-section {
+  background-color: #121216;
+}
+
+
+.truncate-description {
+  
+  overflow:hidden;
+  line-height: 1rem;
+  /* max-height: 8rem; */
+  max-height: 2.5em;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
