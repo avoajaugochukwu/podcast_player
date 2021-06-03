@@ -12,12 +12,14 @@ import PodcastDetails from '../../screens/PodcastDetails'
 const MainSection = () => {
   return (
     <>
-      <main className=" player-section sm:pl-60 min-h-screen ">
-        <Switch>
-          <Route exact path="/" component={HomeScreen}></Route>
-          <Route exact path="/Search" component={Search}></Route>
-          <Route exact path="/podcast/:collectionId" component={PodcastDetails}></Route>
-        </Switch>
+      <main className=" player-section md:pl-60 min-h-screen">
+        <div className="px-4">
+          <Switch>
+            <Route exact path="/" component={HomeScreen}></Route>
+            <Route exact path="/Search" component={Search}></Route>
+            <Route exact path="/podcast/:collectionId" component={PodcastDetails}></Route>
+          </Switch>
+        </div>
       </main>
     </>
   )

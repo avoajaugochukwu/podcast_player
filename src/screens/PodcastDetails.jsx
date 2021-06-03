@@ -63,7 +63,7 @@ function PodcastDetails(props) {
                                 <div className="text-left p-1">
                                     {podcastDetails.genres.map(genre => (
                                         <span
-                                            className={`text-xs text-white p-0.5 mr-1 rounded font-thin ${getGenreColor(genre)}`}
+                                            className={`text-xs text-white p-0.5 mr-1 rounded font-thin ${getGenreColor(genre)}`} key={genre}
                                         >
                                             {genre}
                                         </span>

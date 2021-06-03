@@ -46,6 +46,6 @@ export const getGenreGradientColor = (genre) => {
             return 'from-red-900'
             
         default:
-            return 'from-gray-900'
+            return 'from-gray-500'
     }
 }
