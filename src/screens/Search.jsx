@@ -6,6 +6,8 @@ import axios from 'axios';
 
 import { getGenreColor } from '../utils/genreColor'
 
+import Loading from '../containers/Spinner/Loading'
+
 const initalText = " ";
 
 function Search(props) {
@@ -114,6 +116,7 @@ function Search(props) {
                     </div>
                 </div>
             </div>
+            
         </>
     )
 }

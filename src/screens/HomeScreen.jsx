@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
-import { getHomeScreenPodcast } from '../utils/api'
 
 import { fetchHomePodcasts } from '../redux/actions/homePodcastsActions'
 
-function HomeScreen() {
+import Loading from '../containers/Spinner/Loading'
+
+function HomeScreen(props) {
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -15,11 +15,8 @@ function HomeScreen() {
         fetchAPI()
     }, [dispatch])
 
-    // const error = useSelector((state) => state.error)
-    // const { dbError } = error
-
     const result = useSelector((state) => state.home)
-    const { podcasts, error } = result
+    const { podcasts, error, loading } = result
 
     let popularPodcasts, crimePodcasts, comedyPodcasts, otherPodcasts
 
@@ -30,8 +27,6 @@ function HomeScreen() {
         otherPodcasts = [...podcasts]
     }
 
-    console.log(podcasts)
-
     setTimeout(() => {
         if (error) {
             // Task use error page instead of 
@@ -39,7 +34,6 @@ function HomeScreen() {
             // return <Redirect to='/500' />
         }
     }, 3000)
-
 
 
     // const [podcast, setPodcast] = useState({})
@@ -59,6 +53,10 @@ function HomeScreen() {
 
     // console.log(results)
 
+    const { history } = props
+    const handleClick = (collectionId) => {
+        history.push(`podcast/${collectionId}`)
+    }
 
     return (
         <>
@@ -75,8 +73,12 @@ function HomeScreen() {
                             <div className="flex flex-wrap flex-row">
                                 {
                                     popularPodcasts.splice(0, 5).map(podcast => (
-                                        <div className="xl:w-1/5 md:w-1/2 pr-4" key={podcast.collectionName}>
-                                            <div className="p-3 bg-gray-900 rounded-lg">
+                                        <div 
+                                            className="xl:w-1/5 md:w-1/2 pr-4" 
+                                            key={podcast.collectionName}
+                                            onClick={() => handleClick(podcast.collectionId)}
+                                        >
+                                            <div className="p-3 bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-lg">
                                                 <img className="rounded-lg w-full object-contain mb-1" src={podcast.artworkUrl600} alt="content" />
                                                 
                                                 <div className="min-h-full h-14">
@@ -103,8 +105,12 @@ function HomeScreen() {
                             <div className="flex flex-wrap flex-row">
                                 {
                                     crimePodcasts.splice(5, 5).map(podcast => (
-                                        <div className="xl:w-1/5 md:w-1/2 pr-4" key={podcast.collectionName}>
-                                            <div className="p-3 bg-gray-900 rounded-lg">
+                                        <div 
+                                            className="xl:w-1/5 md:w-1/2 pr-4" 
+                                            key={podcast.collectionName}
+                                            onClick={() => handleClick(podcast.collectionId)}
+                                        >
+                                            <div className="p-3 bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-lg">
                                                 <img className="rounded-lg w-full object-contain mb-1" src={podcast.artworkUrl600} alt="content" />
                                                 
                                                 <div className="min-h-full h-14">
@@ -131,8 +137,12 @@ function HomeScreen() {
                             <div className="flex flex-wrap flex-row">
                                 {
                                     comedyPodcasts.splice(10, 5).map(podcast => (
-                                        <div className="xl:w-1/5 md:w-1/2 pr-4" key={podcast.collectionName}>
-                                            <div className="p-3 bg-gray-900 rounded-lg">
+                                        <div 
+                                            className="xl:w-1/5 md:w-1/2 pr-4" 
+                                            key={podcast.collectionName}
+                                            onClick={() => handleClick(podcast.collectionId)}
+                                        >
+                                            <div className="p-3 bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-lg">
                                                 <img className="rounded-lg w-full object-contain mb-1" src={podcast.artworkUrl600} alt="content" />
                                                 
                                                 <div className="min-h-full h-14">
@@ -159,8 +169,12 @@ function HomeScreen() {
                             <div className="flex flex-wrap flex-row">
                                 {
                                     otherPodcasts.splice(15, otherPodcasts.length).map(podcast => (
-                                        <div className="xl:w-1/5 md:w-1/2 pr-4" key={podcast.collectionName}>
-                                            <div className="p-3 bg-gray-900 rounded-lg">
+                                        <div 
+                                            className="xl:w-1/5 md:w-1/2 pr-4" 
+                                            key={podcast.collectionName}
+                                            onClick={() => handleClick(podcast.collectionId)}
+                                        >
+                                            <div className="p-3 bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-lg">
                                                 <img className="rounded-lg w-full object-contain mb-1" src={podcast.artworkUrl600} alt="content" />
                                                 
                                                 <div className="min-h-full h-14">
@@ -179,6 +193,12 @@ function HomeScreen() {
                             </div>
                         </div>
                     </section>
+                </>
+            }
+            {
+                loading &&
+                <>
+                    <Loading />
                 </>
             }
 

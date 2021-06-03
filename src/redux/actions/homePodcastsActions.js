@@ -9,7 +9,7 @@ export const fetchHomePodcasts = async (dispatch, getState) => {
         type: HOME_PODCAST_LIST_REQUEST
     })
 
-    localStorage.removeItem('homePodcasts')
+    // localStorage.removeItem('homePodcasts')
 
     const homePodcasts = localStorage.getItem('homePodcasts') ? JSON.parse(localStorage.getItem('homePodcasts')) : undefined
     console.log(homePodcasts)
