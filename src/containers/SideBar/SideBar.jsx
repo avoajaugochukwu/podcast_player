@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import { getGenreColor } from '../../utils/genreColor'
+import logo from '../../img/logo.svg'
+import home_logo from '../../img/home_icon.svg'
+import search_icon from '../../img/search_icon.svg'
 
-const SideBar = () => {
-
-    // const { match: { params: { collectionId } } } = props
+const SideBar = (props) => {
 
     const collectionId = '863897795'
 
@@ -32,19 +33,39 @@ const SideBar = () => {
         // let newResults1 = [...results]
         podcastDetails = newResults[0]
     }
+
+    const { history } = props
+    console.log(history)
+    const handleSearchClick = () => {
+        history.push(`search`)
+    }
+
     return (
         <>
             {
                 results &&
                 <>
                     {/* ----------------- Start of Fixed Side Bar --------------------*/}
-                    <aside className=" min-h-screen pt-4 px-1 w-60 text-white bg-gray-700 fixed inset-y-0 overflow-x-hidden overflow-y-auto">
-                        <div className=" pb-4">
+                    <aside className=" min-h-screen pt-4 px-1 w-60 text-white bg-gray-900 bg-black fixed inset-y-0 overflow-x-hidden overflow-y-auto">
+                        <div className="flex flex-row py-4">
+                            <img src={logo} alt='logo' />
                             <Link
-                                className="text-2xl font-bold text-gray-100 dark:text-white lg:text-3xl hover:text-gray-300 dark:hover:text-gray-300"
+                                className="text-2xl  text-white dark:text-white lg:text-3xl hover:text-gray-100 dark:hover:text-gray-300"
                                 to="/">
-                                Podcast
+                                pplayer
                             </Link>
+                        </div>
+                        <div className="text-left">
+                            <div className="flex hover:bg-gray-700 mx-2 p-2 rounded cursor-pointer">
+                                <img src={home_logo} alt='logo' />
+                                <Link className="ml-4" to="/">Home</Link>
+                            </div>
+                            <div className="flex hover:bg-gray-700 mx-2 p-2 rounded cursor-pointer">
+                                <img src={search_icon} alt='logo' />
+                                <Link className="ml-4" to="/search">
+                                    Search
+                                </Link>
+                            </div>
                         </div>
                         <div className=" ">
                             {/* <!-- Extract: user_info blade partial --> */}

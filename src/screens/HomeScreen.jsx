@@ -16,7 +16,7 @@ function HomeScreen(props) {
     }, [dispatch])
 
     const result = useSelector((state) => state.home)
-    const { podcasts, error, loading } = result
+    const { podcasts, error } = result
 
     let popularPodcasts, crimePodcasts, comedyPodcasts, otherPodcasts
 
@@ -26,7 +26,7 @@ function HomeScreen(props) {
         comedyPodcasts = [...podcasts]
         otherPodcasts = [...podcasts]
     }
-    console.log(loading)
+    
     setTimeout(() => {
         if (error) {
             // Task use error page instead of 
