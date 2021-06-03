@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { getGenreColor } from '../utils/genreColor'
 
-import Loading from '../containers/Spinner/Loading'
+// import Loading from '../containers/Spinner/Loading'
 
 const initalText = " ";
 

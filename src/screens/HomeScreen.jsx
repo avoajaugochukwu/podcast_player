@@ -26,7 +26,7 @@ function HomeScreen(props) {
         comedyPodcasts = [...podcasts]
         otherPodcasts = [...podcasts]
     }
-
+    console.log(loading)
     setTimeout(() => {
         if (error) {
             // Task use error page instead of 
@@ -61,7 +61,7 @@ function HomeScreen(props) {
     return (
         <>
             {
-                podcasts &&
+                podcasts ?
                 <>
                     <section className="">
                         <div className="container px-5 mx-auto">
@@ -194,13 +194,12 @@ function HomeScreen(props) {
                         </div>
                     </section>
                 </>
-            }
-            {
-                loading &&
+                :
                 <>
                     <Loading />
                 </>
             }
+            
 
         </>
     )
