@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-
 
 
 const TopPodcastBox = (props) => {
 
-  // console.log(props)
+  const history = useHistory()
 
   const { genreId, genre } = props
 
@@ -24,29 +24,38 @@ const TopPodcastBox = (props) => {
 
   const { results } = podcasts
 
+  const handleClick = (genreId) => {
+    history.push(`/genre/${genreId}`)
+  }
+
   return (
     <>
       {
         results &&
         <>
-          <div className="xl:w-1/4 md:w-1/2 p-2">
-            <div className="p-1 rounded-lg ">
-              <div className="flex flex-wrap pt-2">
-                {results.map(podcast => (
-                  <div className="w-1/2" key={podcast.collectionId}>
-                    <img src={podcast.artworkUrl600} alt="pod_art" className="w-full" />
-                  </div>
-                ))}
-              </div>
-              <h3 className="text-gray-400 font-semibold">
-                {
-                  genre ?
-                  genre
-                  :
-                  results[0].genres[0]
-                }
-                
+          <div className="xl:w-1/4 md:w-1/2">
+            <div className="m-4 cursor-pointer" onClick={() => handleClick(genreId)}>
+              <div className="bg-gray-900 hover:bg-gray-800 pl-2 pt-2 pr-2 rounded-lg">
+                <div className="flex flex-wrap">
+                  {results.map(podcast => (
+
+                    <div className="w-1/2" key={podcast.collectionId} >
+                      <img src={podcast.artworkUrl600} alt="pod_art" className="w-full" />
+                    </div>
+
+                  ))}
+                </div>
+
+                <h3 className="text-gray-300 font-bold py-2">
+                  {
+                    genre ?
+                      genre
+                      :
+                      results[0].genres[0] //get the genre of the first item in result
+                  }
+
                 </h3>
+              </div>
             </div>
           </div>
         </>
