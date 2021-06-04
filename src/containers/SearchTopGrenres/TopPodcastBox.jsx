@@ -7,7 +7,7 @@ const TopPodcastBox = (props) => {
 
   // console.log(props)
 
-  const { genreId } = props
+  const { genreId, genre } = props
 
   const [podcasts, setPodcasts] = useState({})
 
@@ -38,7 +38,15 @@ const TopPodcastBox = (props) => {
                   </div>
                 ))}
               </div>
-              <h3>{results[0].genres[0]}</h3>
+              <h3 className="text-gray-400 font-semibold">
+                {
+                  genre ?
+                  genre
+                  :
+                  results[0].genres[0]
+                }
+                
+                </h3>
             </div>
           </div>
         </>
@@ -50,7 +58,7 @@ const TopPodcastBox = (props) => {
 export default TopPodcastBox
 
 
-const getPodcasts = async (genreId) => {
+const getPodcasts = async (genreId = 1533) => {
   const response = await axios.get(`https://itunes.apple.com/search?term=podcast&genreId=${genreId}&limit=4`)
   return response.data
 }
