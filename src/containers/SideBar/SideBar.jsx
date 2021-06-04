@@ -5,7 +5,7 @@ import axios from 'axios'
 import { getGenreColor } from '../../utils/genreColor'
 import logo from '../../img/logo.svg'
 import home_logo from '../../img/home_icon.svg'
-import search_icon from '../../img/search_icon.svg'
+import search_icon from '../../img/search_icon_white.svg'
 
 const SideBar = () => {
 
