@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchHomePodcasts } from '../redux/actions/homePodcastsActions'
 
 import HomePodcastSection from '../components/HomePodcastSection'
-
 import Loading from '../containers/Spinner/Loading'
 
 function HomeScreen(props) {
@@ -37,9 +36,6 @@ function HomeScreen(props) {
         }
     }, 3000)
 
-
-    
-
     const { history } = props
 
     return (
@@ -47,15 +43,11 @@ function HomeScreen(props) {
             {
                 podcasts ?
                     <>
-                        <section className="">
-
-                            <div className="container px-5 mx-auto">
-                                <HomePodcastSection header={'Popular podcasts'} podcasts={popularPodcasts} history={history} />
-                                <HomePodcastSection header={'Top crime podcasts'} podcasts={crimePodcasts} history={history} />
-                                <HomePodcastSection header={'Top comedy podcasts'} podcasts={comedyPodcasts} history={history} />
-                                <HomePodcastSection header={'Top politics podcasts'} podcasts={politicsPodcasts} history={history} />
-
-                            </div>
+                        <section className="container px-5 mx-auto">
+                            <HomePodcastSection header={'Popular podcasts'} podcasts={popularPodcasts} history={history} />
+                            <HomePodcastSection header={'Top crime podcasts'} podcasts={crimePodcasts} history={history} />
+                            <HomePodcastSection header={'Top comedy podcasts'} podcasts={comedyPodcasts} history={history} />
+                            <HomePodcastSection header={'Top politics podcasts'} podcasts={politicsPodcasts} history={history} />
                         </section>
                     </>
                     :
@@ -63,11 +55,8 @@ function HomeScreen(props) {
                         <Loading />
                     </>
             }
-
-
         </>
     )
 }
-
 
 export default HomeScreen
