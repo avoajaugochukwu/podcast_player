@@ -56,16 +56,24 @@ const SideBar = (props) => {
                             </Link>
                         </div>
                         <div className="text-left">
-                            <div className="flex hover:bg-gray-700 mx-2 p-2 rounded cursor-pointer">
-                                <img src={home_logo} alt='logo' />
-                                <NavLink className="ml-4" to="/">Home</NavLink>
+                            <div>
+                                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-700" activeClassName="bg-gray-700" exact to="/">
+                                    <img src={home_logo} alt='home_icon' />
+                                    <span className="ml-4">Home</span>
+                                </NavLink>
                             </div>
-                            <div className="flex hover:bg-gray-700 mx-2 p-2 rounded cursor-pointer">
+                            <div>
+                                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-700" activeClassName="bg-gray-700" exact to="/search">
+                                    <img src={search_icon} alt='search_icon' />
+                                    <span className="ml-4">Search</span>
+                                </NavLink>
+                            </div>
+                            {/* <div className="flex hover:bg-gray-700 mx-2 p-2 rounded cursor-pointer">
                                 <img src={search_icon} alt='logo' />
                                 <NavLink className="ml-4" to="/search">
                                     Search
                                 </NavLink>
-                            </div>
+                            </div> */}
                         </div>
                         <div className=" ">
                             {/* <!-- Extract: user_info blade partial --> */}
