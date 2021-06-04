@@ -7,10 +7,6 @@ import HomePodcastSection from '../components/HomePodcastSection'
 
 import Loading from '../containers/Spinner/Loading'
 
-// @Todo
-// Remove the 4 sections of podcast on this page into a component so that we would have a shorter line and cleaner updates
-// When the space between podcast is clicked it goes to a podcast, change padding to margin
-
 function HomeScreen(props) {
     const dispatch = useDispatch()
 
