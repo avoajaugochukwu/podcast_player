@@ -1,11 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+import logo from '../../img/logo.svg'
 
 const Footer = () => {
     return (
         <>
 
             <footer className="flex flex-col items-center justify-between px-10 py-4 mt-10 dark:bg-gray-800 sm:flex-row">
-                <a href="https://google.com" className="text-xl font-bold text-gray-600 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Podcast</a>
+                <div className="flex flex-row">
+                  <img src={logo} alt='logo' className="w-12" />
+                  <Link className="text-1xl  text-white dark:text-white hover:text-gray-100 dark:hover:text-gray-300" to="/">
+                    pplayer
+                  </Link>
+                </div>
 
                 <p className="py-2 text-gray-500 dark:text-white sm:py-0">MIT License</p>
 

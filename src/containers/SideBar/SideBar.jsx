@@ -50,13 +50,13 @@ const SideBar = () => {
                         </div>
                         <div className="text-left">
                             <div>
-                                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-700" activeClassName="bg-gray-700" exact to="/">
+                                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-800" activeClassName="bg-gray-800" exact to="/">
                                     <img src={home_logo} alt='home_icon' />
                                     <span className="ml-4">Home</span>
                                 </NavLink>
                             </div>
                             <div>
-                                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-700" activeClassName="bg-gray-700" exact to="/search">
+                                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-800" activeClassName="bg-gray-800" exact to="/search">
                                     <img src={search_icon} alt='search_icon' />
                                     <span className="ml-4">Search</span>
                                 </NavLink>
