@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDebounce } from "use-debounce";
 
-import NavBar from '../components/NavBar'
 import axios from 'axios';
 
 import { getGenreColor } from '../utils/genreColor'
@@ -11,6 +10,7 @@ import left_chevron_circle from '../img/chevron_circle_left_icon.svg'
 import search_icon_black from '../img/search_icon_black.svg'
 
 // import Loading from '../containers/Spinner/Loading'
+import SearchTopGenres from '../containers/SearchTopGrenres/SearchTopGenres'
 
 const initalText = " ";
 
@@ -60,17 +60,18 @@ function SearchScreen(props) {
             <img src={right_chevron_circle} className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600" alt="right_chevron" />
 
           </div>
-          <div class="relative sm:w-4/12">
-            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+          <div className="relative sm:w-4/12">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
               <img src={search_icon_black} alt="search_icon_black" />
             </span>
 
-            <input type="text" class="w-full py-3 pl-10 pr-4 text-gray-900 bg-white border border-gray-300 rounded-full dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Podcast" />
+            <input type="text" className="w-full py-3 pl-10 pr-4 text-gray-900 bg-white border border-gray-300 rounded-full dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Podcast" />
           </div>
         </div>
 
         <div>
-          <h1 className="text-white text-left pt-6 text-3xl">Top genres</h1>
+          <h1 className="text-left text-gray-100 text-2xl py-2 sm:pt-10 font-bold ">Top genres</h1>
+          <SearchTopGenres />
         </div>
 
 
