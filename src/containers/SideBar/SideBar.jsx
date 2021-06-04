@@ -7,7 +7,7 @@ import logo from '../../img/logo.svg'
 import home_logo from '../../img/home_icon.svg'
 import search_icon from '../../img/search_icon.svg'
 
-const SideBar = (props) => {
+const SideBar = () => {
 
     const collectionId = '863897795'
 
@@ -30,14 +30,7 @@ const SideBar = (props) => {
 
     if (results) {
         let newResults = [...results] // to create a new list, because first item in result is podcast details not episode
-        // let newResults1 = [...results]
         podcastDetails = newResults[0]
-    }
-
-    const { history } = props
-    console.log(history)
-    const handleSearchClick = () => {
-        history.push(`search`)
     }
 
     return (
