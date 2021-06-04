@@ -26,6 +26,8 @@ const MainSection = () => {
   )
 }
 
+// isHomeActive true, isSearchActive 
+// if search is clicked, isHomeActive to false then isSearchActive to true
 
 
 export default MainSection

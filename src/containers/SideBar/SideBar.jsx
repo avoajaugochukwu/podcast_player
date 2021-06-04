@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios'
 
 import { getGenreColor } from '../../utils/genreColor'
@@ -58,13 +58,13 @@ const SideBar = (props) => {
                         <div className="text-left">
                             <div className="flex hover:bg-gray-700 mx-2 p-2 rounded cursor-pointer">
                                 <img src={home_logo} alt='logo' />
-                                <Link className="ml-4" to="/">Home</Link>
+                                <NavLink className="ml-4" to="/">Home</NavLink>
                             </div>
                             <div className="flex hover:bg-gray-700 mx-2 p-2 rounded cursor-pointer">
                                 <img src={search_icon} alt='logo' />
-                                <Link className="ml-4" to="/search">
+                                <NavLink className="ml-4" to="/search">
                                     Search
-                                </Link>
+                                </NavLink>
                             </div>
                         </div>
                         <div className=" ">
