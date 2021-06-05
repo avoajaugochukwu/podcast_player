@@ -6,7 +6,7 @@ import {
 
 import HomeScreen from '../../screens/HomeScreen'
 import SearchScreen from '../../screens/SearchScreen'
-import PodcastDetails from '../../screens/PodcastDetails'
+import PodcastDetailsScreen from '../../screens/PodcastDetailsScreen'
 import GenreListScreen from '../../screens/GenreListScreen'
 
 
@@ -19,7 +19,7 @@ const MainSection = () => {
         <Switch>
           <Route exact path="/" component={HomeScreen}></Route>
           <Route exact path="/Search" component={SearchScreen}></Route>
-          <Route exact path="/podcast/:collectionId" component={PodcastDetails}></Route>
+          <Route exact path="/podcast/:collectionId" component={PodcastDetailsScreen}></Route>
           <Route exact path="/genre/:genreId" component={GenreListScreen}></Route>
         </Switch>
         <Footer />

@@ -52,12 +52,12 @@ function SearchScreen(props) {
         <div className="flex flex-row space-x-5 pt-3">
           <div className="py-3">
             <p className="bg-gray-800 rounded-full">
-              <img src={left_chevron_circle} className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600" alt="left_chevron" />
+              <img src={left_chevron_circle} className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600 cursor-pointer" alt="left_chevron" />
             </p>
           </div>
 
           <div className="py-3 " >
-            <img src={right_chevron_circle} className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600" alt="right_chevron" />
+            <img src={right_chevron_circle} className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600 cursor-pointer" alt="right_chevron" />
 
           </div>
           <div className="relative sm:w-4/12">
