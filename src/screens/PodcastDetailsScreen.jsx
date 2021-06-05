@@ -8,9 +8,6 @@ import { getGenreColor, getGenreGradientColor } from '../utils/genreColor'
 
 import Loading from '../containers/Spinner/Loading'
 
-// Add "See more so that users can see more of the description when they click"
-// Format description by recognizing the special characters to improve readability
-
 function PodcastDetailsScreen(props) {
   const { match: { params: { collectionId } } } = props
 

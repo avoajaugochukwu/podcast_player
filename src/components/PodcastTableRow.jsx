@@ -16,14 +16,13 @@ const PodcastTableRow = ({ episodes }) => {
             <div
               key={item.releaseDate}
               className="my-3"
-            // onClick={() => { handleClick(item.collectionId) }}
             >
               <div
                 className="flex w-full max-w-full mx-auto overflow-hidden 
                                             hover:bg-gray-900 border-b border-gray-800
-                                            shadow-md dark:bg-gray-800 px-4">
+                                            shadow-md dark:bg-gray-800 px-4  py-6">
                 <img
-                  className="object-cover w-32 h-32 rounded my-6"
+                  className="object-cover w-32 h-32 rounded"
                   alt="User avatar"
                   src={item.artworkUrl160} />
 
