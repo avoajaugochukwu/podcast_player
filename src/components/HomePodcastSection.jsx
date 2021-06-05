@@ -19,7 +19,7 @@ const HomePodcastSection = (props) => {
                 {
                     podcasts.map(podcast => (
                         <div
-                            className="xl:w-1/5 md:w-1/2 px-2"
+                            className="xl:w-1/5 md:w-1/2 px-1"
                             key={podcast.collectionName}
                             
                         >
