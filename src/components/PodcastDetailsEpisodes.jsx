@@ -1,18 +1,18 @@
 import React from 'react'
 
-import PlayButton from '../components/PlayButton'
-import ReleaseDate from '../components/ReleaseDate'
-import EpisodeDuration from '../components/EpisodeDuration'
-import EpisodeDescription from '../components/EpisodeDescription'
+import PlayButton from './PlayButton'
+import ReleaseDate from './ReleaseDate'
+import EpisodeDuration from './EpisodeDuration'
+import EpisodeDescription from './EpisodeDescription'
 
-const PodcastTableRow = ({ episodes }) => {
+const PodcastDetailsEpisodes = ({ episodes }) => {
 
   return (
     <>
       {
         episodes &&
         <>
-          {episodes.slice(0, 7).map(item => (
+          {episodes.map(item => (
             <div
               key={item.releaseDate}
               className="my-3"
@@ -29,21 +29,13 @@ const PodcastTableRow = ({ episodes }) => {
                 <div className="flex items-center">
                   <div className="pl-3">
                     <div className=" dark:text-gray-200">
-                      <p className="font-medium pb-2 text-white">{item.trackName}</p>
+                      <h3 className="font-medium pb-2 text-white">{item.trackName}</h3>
                       <EpisodeDescription description={item.description} />
                       <div className="pt-3 flex ">
-                        <div>
-                          <PlayButton url={item.episodeUrl} />
-                        </div>
-                        <div className="pl-3">
-                          <ReleaseDate date={item.releaseDate} />
-                        </div>
-
-                        <div>
-                          <EpisodeDuration duration={item.trackTimeMillis} />
-                        </div>
+                        <PlayButton url={item.episodeUrl} />
+                        <ReleaseDate date={item.releaseDate} />
+                        <EpisodeDuration duration={item.trackTimeMillis} />
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -61,4 +53,4 @@ const PodcastTableRow = ({ episodes }) => {
   )
 }
 
-export default PodcastTableRow
+export default PodcastDetailsEpisodes

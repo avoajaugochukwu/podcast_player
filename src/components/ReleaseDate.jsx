@@ -9,7 +9,9 @@ const ReleaseDate = (props) => {
     
     const date_string = moment(date).format('DD MMM YYYY')
     return (
-        <span className="text-xs">{ date_string }</span>
+        <div>
+          <span className="text-xs pl-3">{ date_string }</span>
+        </div>
     )
 }
 

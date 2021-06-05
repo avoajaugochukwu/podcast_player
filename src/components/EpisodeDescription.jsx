@@ -11,7 +11,6 @@ const EpisodeDescription = ({ description }) => {
 
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore)
-    console.log('I was hit')
   }
 
   return (

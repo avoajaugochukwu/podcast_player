@@ -12,7 +12,7 @@ const EpisodeDuration = (props) => {
     }
     
     return (
-        <>
+        <div>
             {
                 new_duration ?
                 <>
@@ -25,7 +25,7 @@ const EpisodeDuration = (props) => {
                 <></>
             }
             
-        </>
+        </div>
     )
 }
 
