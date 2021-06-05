@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
-const NewLine = (text) => <div style={{ whiteSpace: "pre-wrap" }}>{text}</div>
+const NewLine = (text) => {
+  return <div style={{ whiteSpace: "pre-wrap" }}>{text}</div>
+}
 
 
 const EpisodeDescription = ({ description }) => {
