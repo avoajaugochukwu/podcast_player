@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios'
 
-import { getGenreColor } from '../../utils/genreColor'
+// import { getGenreColor } from '../../utils/genreColor'
 import logo from '../../img/logo.svg'
 import home_logo from '../../img/home_icon.svg'
 import search_icon from '../../img/search_icon_white.svg'
@@ -26,12 +26,12 @@ const SideBar = () => {
 
   const { results } = podcast
 
-  let podcastDetails
+  // let podcastDetails
 
-  if (results) {
-    let newResults = [...results] // to create a new list, because first item in result is podcast details not episode
-    podcastDetails = newResults[0]
-  }
+  // if (results) {
+  //   let newResults = [...results] // to create a new list, because first item in result is podcast details not episode
+  //   podcastDetails = newResults[0]
+  // }
 
   return (
     <>
@@ -102,7 +102,8 @@ const SideBar = () => {
 
 
 const getPodcast = async (collectionId) => {
-  const response = await axios.get(`https://itunes.apple.com/lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=10`)
+  const response = await axios.get(
+    `https://itunes.apple.com/lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=10`)
   return response.data
 }
 
