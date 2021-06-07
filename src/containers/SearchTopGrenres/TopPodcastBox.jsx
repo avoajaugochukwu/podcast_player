@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-
+import { BASE_URL } from '../../utils/consts'
 
 const TopPodcastBox = (props) => {
 
@@ -68,6 +68,6 @@ export default TopPodcastBox
 
 
 const getPodcasts = async (genreId = 1533) => {
-  const response = await axios.get(`https://itunes.apple.com/search?term=podcast&genreId=${genreId}&limit=4`)
+  const response = await axios.get(`${BASE_URL}search?term=podcast&genreId=${genreId}&limit=4`)
   return response.data
 }
