@@ -5,6 +5,7 @@ import axios from 'axios'
 import PodcastDetailsBody from '../components/PodcastDetailsBody'
 import PodcastDetailsHeader from '../components/PodcastDetailsHeader'
 
+// @Todo Stop loading from showing on last episode. Currently even when there is no episode left, loading still shows
 
 import Loading from '../containers/Spinner/Loading'
 

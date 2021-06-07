@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Helmet>
+        {/* <Helmet>
           <title>
             Podcast Player - Apple API
           </title>
-          </Helmet>
+          </Helmet> */}
         <SideBar />
         <MainSection />
       </BrowserRouter>

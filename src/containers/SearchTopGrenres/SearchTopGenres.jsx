@@ -1,12 +1,16 @@
 import React from 'react'
 
 import TopPodcastBox from './TopPodcastBox'
+// @Todo filter out jo rogan for results, cause it doesn't return any podcast
 
 const SearchTopGenres = () => {
   return (
     <section className="text-gray-600 body-font">
+      <h1 className="text-4xl py-5">
+        Top genres
+      </h1>
       <div className="container px-5 py-5 mx-auto">
-        
+
         <div className="flex flex-wrap -m-4">
           <TopPodcastBox genreId="1402" /> {/* Design */}
           <TopPodcastBox genreId="1488" genre="Crime" /> {/* Crime */}
