@@ -102,9 +102,8 @@ const SideBar = () => {
 
 
 const getPodcast = async (collectionId) => {
-  const response = await axios.get(
-    `https://itunes.apple.com/lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=10`)
-  return response.data
+    const response = await axios.get(`https://secret-beyond-79263.herokuapp.com/https://itunes.apple.com/lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=10`)
+    return response.data
 }
 
 

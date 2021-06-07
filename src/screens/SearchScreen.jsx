@@ -11,6 +11,7 @@ import search_icon_black from '../img/search_icon_black.svg'
 
 // import Loading from '../containers/Spinner/Loading'
 import SearchTopGenres from '../containers/SearchTopGrenres/SearchTopGenres'
+import { BASE_URL } from '../utils/consts'
 
 const initalText = " ";
 
@@ -157,7 +158,7 @@ function SearchScreen(props) {
 
 
 const getPodcasts = async (text) => {
-  const response = await axios.get(`https://itunes.apple.com/search?term=${text}&entity=podcast`)
+  const response = await axios.get(`${BASE_URL}search?term=${text}&entity=podcast`)
   return response.data
 }
 
