@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SearchResults from './SearchResults'
-import SearchResultBlank from './SearchResultBlank'
+import SearchResultSkeleton from './SearchResultSkeleton'
 
 const SearchResultContainer = ({ resultCount, results, handleClick }) => {
   return (
@@ -10,7 +10,7 @@ const SearchResultContainer = ({ resultCount, results, handleClick }) => {
         resultCount > 0 ?
         <SearchResults results={results} handleClick={handleClick} />
         :
-        <SearchResultBlank />
+        <SearchResultSkeleton />
       }
     </div>
   )

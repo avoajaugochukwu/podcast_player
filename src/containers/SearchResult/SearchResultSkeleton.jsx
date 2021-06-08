@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchResultBlank = () => {
+const SearchResultSkeleton = () => {
   return (
     <div className="flex flex-row space-x-4">
       <div className="w-2/5 p-4">
@@ -29,4 +29,4 @@ const SearchResultBlank = () => {
   )
 }
 
-export default SearchResultBlank
+export default SearchResultSkeleton
