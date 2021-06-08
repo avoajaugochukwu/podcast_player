@@ -5,16 +5,21 @@ import PlayButton from '../../components/PlayButton'
 import ReleaseDate from '../../components/ReleaseDate'
 import EpisodeDuration from '../../components/EpisodeDuration'
 
-const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handleClick }) => {
+const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handleClick, history }) => {
   const topResult = podcastResults[0]
   const secondToFifthResult = episodeResults
+  const otherPodcasts = podcastResults.slice(1, topResult.length)
+
+  // const handlePodcastClick = (collectionId) => {
+  //   history.push(`podcast/${collectionId}`)
+  // }
 
   return (
     <>
       <div className="flex flex-row space-x-4">
         <div className="w-2/5 p-4">
-          <h1 className="text-left text-gray-100 text-2xl font-bold pb-5">Top result</h1>
-          <div className="bg-gray-900 p-5 rounded-lg hover:bg-gray-800">
+          <h1 className="text-left text-gray-100 text-2xl font-bold pb-2">Top result</h1>
+          <div className="bg-gray-900 p-5 rounded-lg hover:bg-gray-800 cursor-pointer" onClick={() => handleClick(topResult.collectionId)}>
 
             <img
               className="object-cover w-32 h-32 rounded-lg"
@@ -39,7 +44,7 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
         </div>
         {/*  */}
         <div className="w-3/5 p-4">
-          <h1 className="text-left text-gray-100 text-2xl font-bold pb-5">Episodes</h1>
+          <h1 className="text-left text-gray-100 text-2xl font-bold pb-2">Episodes</h1>
           {
             secondToFifthResult.map(item => (
               <div key={item.collectionId} className="flex flex-row bg-gray-900 mb-2 hover:bg-gray-800">
@@ -64,45 +69,34 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
       </div>
 
       <h1 className="text-left text-gray-100 text-2xl font-bold pb-5">Search result for '{activeSearchText}'</h1>
-      {
-        podcastResults.map(item => (
-          <div
-            key={item.collectionId}
-            className="my-3"
-            onClick={() => { handleClick(item.collectionId) }}
-          >
+      <div className="flex flex-wrap flex-row">
+        {otherPodcasts.map(podcast => (
 
-            <div className="flex w-full max-w-full mx-auto overflow-hidden bg-white hover:bg-gray-100 cursor-pointer rounded-lg shadow-md dark:bg-gray-800">
-              <div className="w-2 bg-gray-800 dark:bg-gray-900"></div>
+          <div className="xl:w-1/5 md:w-1/2 p-1" key={podcast.collectionId} >
+            <div onClick={() => handleClick(podcast.collectionId)}>
+              <div className="p-3 bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-lg">
 
-              <div className="flex items-center px-2 py-3">
-                <img
-                  className="object-cover w-24 h-24 rounded"
-                  alt="User avatar"
-                  src={item.artworkUrl100} />
+                <img className="rounded-lg w-full object-contain mb-1" src={podcast.artworkUrl600} alt="content" />
+                
+                <div className="min-h-full h-14">
 
-                <div className="ml-3">
-                  <div className="text-gray-600 dark:text-gray-200">
-                    <p className="text-left text-gray-900">{item.trackName}</p>
+                  <h2 className="text-left mt-2 home-screen-truncate-collection-name text-sm text-white font-medium title-font">
+                    {podcast.collectionName}
+                  </h2>
+                  <p className="text-left pt-1 text-gray-400 text-xs">
+                    {podcast.artistName}
+                  </p>
 
-                    <p className="text-left text-sm">{item.artistName}</p>
-
-                    <div className="text-left">
-                      {item.genres.map(genre => (
-                        <span
-                          className={`text-xs text-white p-0.5 mr-1 rounded ${getGenreColor(genre)}`} key={genre}
-                        >
-                          {genre}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
+
           </div>
-        ))
-      }
+
+        ))}
+      </div>
+
+      
     </>
   )
 }

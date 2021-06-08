@@ -3,8 +3,6 @@ import { useDebounce } from "use-debounce";
 
 import axios from 'axios';
 
-import { getGenreColor } from '../utils/genreColor'
-
 import SearchResultContainer from '../containers/SearchResult/SearchResultContainer'
 
 import right_chevron_circle from '../img/chevron_circle_right_icon.svg'
@@ -13,7 +11,6 @@ import search_icon_black from '../img/search_icon_black.svg'
 
 // import Loading from '../containers/Spinner/Loading'
 import SearchTopGenres from '../containers/SearchTopGrenres/SearchTopGenres'
-import SearchResults from '../containers/SearchResult/SearchResults'
 import { BASE_URL } from '../utils/consts'
 
 const initalText = " ";
@@ -35,7 +32,7 @@ function SearchScreen(props) {
         })
         .catch(err => console.log(err))
 
-        getEpisodes(debouncedText)
+      getEpisodes(debouncedText)
         .then(data => {
           setSearchEpisodeResults(data)
         })
@@ -60,7 +57,7 @@ function SearchScreen(props) {
 
   const { resultCount: podcastResultCount, results: podcastResults } = searchPodcastResults
   const { resultCount: episodeResultCount, results: episodeResults } = searchEpisodeResults
-  
+
 
   return (
     <>
@@ -93,68 +90,20 @@ function SearchScreen(props) {
           </div>
         </div>
 
-        {/* <div>
-          {
-            resultCount > 0 ?
-              <SearchResults results={results} handleClick={handleClick} />
-              :
-              <h1 className="text-white">'Please enter search'</h1>
-          }
-        </div> */}
-
-        {/* <div>
-          <h1 className="text-left text-gray-100 text-2xl py-2 sm:pt-10 font-bold ">Top genres</h1>
-          <SearchTopGenres />
-        </div> */}
 
         {
-          activeSearchText !== '' 
-            ? 
-          <SearchResultContainer 
-            podcastResultCount={podcastResultCount} 
-            podcastResults={podcastResults}
-            episodeResultCount={episodeResultCount} 
-            episodeResults={episodeResults}
-            activeSearchText={activeSearchText}
-            handleClick={handleClick} /> 
-          : 
-          <SearchTopGenres  />
+          activeSearchText !== ''
+            ?
+            <SearchResultContainer
+              podcastResultCount={podcastResultCount}
+              podcastResults={podcastResults}
+              episodeResultCount={episodeResultCount}
+              episodeResults={episodeResults}
+              activeSearchText={activeSearchText}
+              handleClick={handleClick} />
+            :
+            <SearchTopGenres />
         }
-
-        {/* <h1 className="text-white">{activeSearchText}</h1> */}
-
-
-
-
-
-
-
-        
-        <div className="rounded-lg mx-4 md:mx-36">
-
-          <div className="flex flex-row justify-center overflow-hidden rounded-md max-w-full mx-auto">
-
-            <input
-              className="px-3 flex-grow border h-12 outline-none focus:outline-black"
-              type="text"
-
-              placeholder="Enter podcast name"
-              aria-label="Enter podcast name"
-              onChange={(e) => {
-                setSearchText(e.target.value)
-                setActiveSearchText(e.target.value)
-
-              }}
-            />
-
-            <button className="px-4 md:px-16 text-white  bg-blue-500 hover:bg-blue-400 h-12">
-              Search
-            </button>
-          </div>
-
-          {/*  */}
-
-        </div>
       </div>
 
     </>
