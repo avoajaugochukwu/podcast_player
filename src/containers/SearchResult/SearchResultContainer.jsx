@@ -1,15 +1,16 @@
 import React from 'react'
 
 import SearchResults from './SearchResults'
+import SearchResultBlank from './SearchResultBlank'
 
 const SearchResultContainer = ({ resultCount, results, handleClick }) => {
   return (
-    <div className="min-h-screen w-full bg-gray-600">
+    <div className="min-h-screen w-full">
       {
         resultCount > 0 ?
         <SearchResults results={results} handleClick={handleClick} />
         :
-        <h1 className="text-white">'Please enter search'</h1>
+        <SearchResultBlank />
       }
     </div>
   )

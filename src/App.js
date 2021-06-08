@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import Helmet from 'react-helmet'
+// import Helmet from 'react-helmet'
 
 import SideBar from './containers/SideBar/SideBar'
 import MainSection from './containers/MainSection/MainSection'

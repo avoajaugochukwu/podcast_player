@@ -6,7 +6,7 @@ import TopPodcastBox from './TopPodcastBox'
 const SearchTopGenres = () => {
   return (
     <section className="text-gray-600 body-font">
-      <h1 className="text-4xl py-5">
+      <h1 className="text-left text-gray-100 text-2xl py-2 sm:pt-10 font-bold px-5">
         Top genres
       </h1>
       <div className="container px-5 py-5 mx-auto">

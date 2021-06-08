@@ -22,7 +22,7 @@ function SearchScreen(props) {
   const [searchText, setSearchText] = useState(initalText)
   const [searchResults, setSearchResults] = useState({});
   const [debouncedText] = useDebounce(searchText, 500)
-  const [activeSearchText, setActiveSearchText] = useState('')
+  const [activeSearchText, setActiveSearchText] = useState('') // Remove 't' when you are done
 
   useEffect(() => {
     const source = axios.CancelToken.source()
