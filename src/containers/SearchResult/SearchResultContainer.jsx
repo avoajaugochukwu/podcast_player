@@ -3,12 +3,12 @@ import React from 'react'
 import SearchResults from './SearchResults'
 import SearchResultSkeleton from './SearchResultSkeleton'
 
-const SearchResultContainer = ({ resultCount, results, handleClick }) => {
+const SearchResultContainer = ({ podcastResultCount, podcastResults, episodeResultCount, episodeResults, activeSearchText, handleClick }) => {
   return (
     <div className="min-h-screen w-full">
       {
-        resultCount > 0 ?
-        <SearchResults results={results} handleClick={handleClick} />
+        podcastResultCount > 0 ?
+        <SearchResults podcastResults={podcastResults} episodeResults={episodeResults} activeSearchText={activeSearchText} handleClick={handleClick} />
         :
         <SearchResultSkeleton />
       }

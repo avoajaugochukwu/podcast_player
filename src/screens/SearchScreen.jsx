@@ -20,7 +20,8 @@ const initalText = " ";
 
 function SearchScreen(props) {
   const [searchText, setSearchText] = useState(initalText)
-  const [searchResults, setSearchResults] = useState({});
+  const [searchPodcastResults, setSearchPodcastResults] = useState({})
+  const [searchEpisodeResults, setSearchEpisodeResults] = useState({})
   const [debouncedText] = useDebounce(searchText, 500)
   const [activeSearchText, setActiveSearchText] = useState('') // Remove 't' when you are done
 
@@ -30,14 +31,21 @@ function SearchScreen(props) {
     if (debouncedText) {
       getPodcasts(debouncedText)
         .then(data => {
-          setSearchResults(data)
+          setSearchPodcastResults(data)
+        })
+        .catch(err => console.log(err))
+
+        getEpisodes(debouncedText)
+        .then(data => {
+          setSearchEpisodeResults(data)
         })
         .catch(err => console.log(err))
     }
     else {
-      setSearchResults({})
+      setSearchPodcastResults({})
+      setSearchEpisodeResults({})
     }
-    console.log(searchText)
+
     return () => {
       source.cancel(
         "Canceled because of component unmounted or debounce Text changed"
@@ -50,7 +58,9 @@ function SearchScreen(props) {
     history.push(`podcast/${collectionId}`)
   }
 
-  const { resultCount, results } = searchResults
+  const { resultCount: podcastResultCount, results: podcastResults } = searchPodcastResults
+  const { resultCount: episodeResultCount, results: episodeResults } = searchEpisodeResults
+  
 
   return (
     <>
@@ -100,7 +110,13 @@ function SearchScreen(props) {
         {
           activeSearchText !== '' 
             ? 
-          <SearchResultContainer resultCount={resultCount} results={results} handleClick={handleClick} /> 
+          <SearchResultContainer 
+            podcastResultCount={podcastResultCount} 
+            podcastResults={podcastResults}
+            episodeResultCount={episodeResultCount} 
+            episodeResults={episodeResults}
+            activeSearchText={activeSearchText}
+            handleClick={handleClick} /> 
           : 
           <SearchTopGenres  />
         }
@@ -151,5 +167,9 @@ const getPodcasts = async (text) => {
   return response.data
 }
 
+const getEpisodes = async (text) => {
+  const response = await axios.get(`${BASE_URL}search?term=${text}&entity=podcastEpisode&limit=4`)
+  return response.data
+}
 
 export default SearchScreen

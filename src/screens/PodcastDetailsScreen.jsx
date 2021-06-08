@@ -9,6 +9,8 @@ import PodcastDetailsHeader from '../components/PodcastDetailsHeader'
 
 import Loading from '../containers/Spinner/Loading'
 
+import { BASE_URL } from '../utils/consts'
+
 function PodcastDetailsScreen(props) {
   const { match: { params: { collectionId } } } = props
 
@@ -53,7 +55,7 @@ function PodcastDetailsScreen(props) {
 
 
 const getPodcast = async (collectionId) => {
-  const response = await axios.get(`https://itunes.apple.com/lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`)
+  const response = await axios.get(`${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`)
   return response.data
 }
 
