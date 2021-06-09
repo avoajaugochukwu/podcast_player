@@ -37,7 +37,7 @@ function PodcastDetailsScreen(props) {
   }
   
   return (
-    <>
+    <section>
       {
         results ?
           <>
@@ -49,7 +49,7 @@ function PodcastDetailsScreen(props) {
             <Loading />
           </>
       }
-    </>
+    </section>
   )
 }
 

@@ -6,17 +6,19 @@
 }
 
 .home-screen-truncate-collection-name {
-  /* overflow: hidden;
-  max-height: 2em;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  display: block;
-  display: -webkit-box; */
-
-  /* width: 250px; */
   max-height: 2em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgb(40, 40, 40);
+  height: 80px;
+  z-index: 2;
 }

@@ -71,7 +71,7 @@ function SearchScreen(props) {
 
 
   return (
-    <>
+    <section>
       <div className="container px-5 mx-auto">
         <div className="flex flex-row space-x-5 pt-3">
 
@@ -127,7 +127,7 @@ function SearchScreen(props) {
         }
       </div>
 
-    </>
+    </section>
   )
 }
 

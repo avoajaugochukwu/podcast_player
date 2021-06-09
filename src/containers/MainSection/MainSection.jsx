@@ -15,7 +15,7 @@ import Footer from './Footer'
 const MainSection = () => {
   return (
     <>
-      <main className=" player-section md:pl-60 min-h-screen">
+      <main className=" player-section md:pl-60 min-h-screen min-w-full">
         <Switch>
           <Route exact path="/" component={HomeScreen}></Route>
           <Route exact path="/Search" component={SearchScreen}></Route>
