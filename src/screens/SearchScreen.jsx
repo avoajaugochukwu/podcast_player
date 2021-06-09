@@ -8,6 +8,7 @@ import SearchResultContainer from '../containers/SearchResult/SearchResultContai
 import right_chevron_circle from '../img/chevron_circle_right_icon.svg'
 import left_chevron_circle from '../img/chevron_circle_left_icon.svg'
 import search_icon_black from '../img/search_icon_black.svg'
+import cancel_close_delete_icon from '../img/cancel_close_delete_icon.svg'
 
 // import Loading from '../containers/Spinner/Loading'
 import SearchTopGenres from '../containers/SearchTopGrenres/SearchTopGenres'
@@ -54,9 +55,15 @@ function SearchScreen(props) {
   const handleClick = (collectionId) => {
     history.push(`podcast/${collectionId}`)
   }
-  
+
   const handleBack = () => {
     history.goBack()
+  }
+
+  const handleSearchCancel = (e) => {
+    setActiveSearchText('')
+    setSearchText('')
+    e.target.value = ''
   }
 
   const { resultCount: podcastResultCount, results: podcastResults } = searchPodcastResults
@@ -67,38 +74,43 @@ function SearchScreen(props) {
     <>
       <div className="container px-5 mx-auto">
         <div className="flex flex-row space-x-5 pt-3">
-          <div className="py-3">
-            <p className="bg-gray-800 rounded-full">
-              <img 
-                src={left_chevron_circle} 
-                className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600 cursor-pointer" 
-                alt="left_chevron"
-                onClick={() => handleBack()}
-                 />
-            </p>
-          </div>
 
-          <div className="py-3 " >
-            <img src={right_chevron_circle} className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600 cursor-pointer" alt="right_chevron" />
+          <img
+            src={left_chevron_circle}
+            className="w-8 my-3 rounded-full bg-gray-400 hover:bg-gray-600 cursor-pointer"
+            alt="left_chevron"
+            onClick={() => handleBack()} />
 
-          </div>
+          <img
+            src={right_chevron_circle}
+            className="w-8 my-3 rounded-full bg-gray-400 cursor-not-allowed hover:bg-gray-600 cursor-pointer"
+            alt="right_chevron" />
+
           <div className="relative sm:w-4/12">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
               <img src={search_icon_black} alt="search_icon_black" />
             </span>
-
             <input
               type="text"
-              className="w-full py-3 pl-10 pr-4 text-gray-900 bg-white border border-gray-300 rounded-full dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+              className="w-full py-3 pl-10 pr-4 text-gray-900 bg-white border border-gray-300 rounded-full"
               placeholder="Podcast"
               aria-label="Podcast"
+              value={searchText}
               onChange={(e) => {
                 setSearchText(e.target.value)
                 setActiveSearchText(e.target.value)
               }} />
+            {
+              activeSearchText && 
+              <span className="absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer">
+                <img 
+                  src={cancel_close_delete_icon} 
+                  alt="cancel_close_delete_icon"
+                  onClick={(e) => handleSearchCancel(e)} />
+              </span>
+            }
           </div>
         </div>
-
 
         {
           activeSearchText !== ''
