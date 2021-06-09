@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios'
 
-// import { getGenreColor } from '../../utils/genreColor'
+import { BASE_URL } from '../../utils/consts'
+
+
 import logo from '../../img/logo.svg'
 import home_logo from '../../img/home_icon.svg'
 import search_icon from '../../img/search_icon_white.svg'
@@ -102,7 +104,7 @@ const SideBar = () => {
 
 
 const getPodcast = async (collectionId) => {
-    const response = await axios.get(`https://secret-beyond-79263.herokuapp.com/https://itunes.apple.com/lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=10`)
+    const response = await axios.get(`${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=10`)
     return response.data
 }
 

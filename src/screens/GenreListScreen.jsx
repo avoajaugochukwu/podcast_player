@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
+import { BASE_URL } from '../utils/consts'
 
 const GenreListScreen = (props) => {
   const { match: { params: { genreId } } } = props
@@ -75,6 +76,6 @@ const GenreListScreen = (props) => {
 export default GenreListScreen
 
 const getPodcasts = async (genreId) => {
-  const response = await axios.get(`https://itunes.apple.com/search?term=podcast&genreId=${genreId}&limit=10`)
+  const response = await axios.get(`${BASE_URL}search?term=podcast&genreId=${genreId}&limit=10`)
   return response.data
 }
