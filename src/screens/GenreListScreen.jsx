@@ -21,10 +21,9 @@ const GenreListScreen = (props) => {
 
   const { results } = podcasts
 
-  console.log(genreId)
-  console.log(results)
 
   const history = useHistory()
+  console.log(history)
   const handleClick = (collectionId) => {
     history.push(`../podcast/${collectionId}`)
   }

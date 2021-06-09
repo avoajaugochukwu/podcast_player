@@ -1,25 +1,20 @@
 import React from 'react'
-import { getGenreColor } from '../../utils/genreColor'
+import { getGenreColor, getGenreGradientColor } from '../../utils/genreColor'
 import EpisodeDescription from '../../components/EpisodeDescription'
-import PlayButton from '../../components/PlayButton'
-import ReleaseDate from '../../components/ReleaseDate'
-import EpisodeDuration from '../../components/EpisodeDuration'
+
 
 const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handleClick, history }) => {
+  
   const topResult = podcastResults[0]
-  const secondToFifthResult = episodeResults
+  const episodes = episodeResults
   const otherPodcasts = podcastResults.slice(1, topResult.length)
-
-  // const handlePodcastClick = (collectionId) => {
-  //   history.push(`podcast/${collectionId}`)
-  // }
 
   return (
     <>
       <div className="flex flex-row space-x-4">
         <div className="w-2/5 p-4">
           <h1 className="text-left text-gray-100 text-2xl font-bold pb-2">Top result</h1>
-          <div className="bg-gray-900 p-5 rounded-lg hover:bg-gray-800 cursor-pointer" onClick={() => handleClick(topResult.collectionId)}>
+          <div className={` bg-gradient-to-b ${getGenreGradientColor(topResult.genres[0])} bg-gray-900 p-5 rounded-lg hover:bg-gray-800 cursor-pointer`} onClick={() => handleClick(topResult.collectionId)}>
 
             <img
               className="object-cover w-32 h-32 rounded-lg"
@@ -46,8 +41,9 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
         <div className="w-3/5 p-4">
           <h1 className="text-left text-gray-100 text-2xl font-bold pb-2">Episodes</h1>
           {
-            secondToFifthResult.map(item => (
-              <div key={item.collectionId} className="flex flex-row bg-gray-900 mb-2 hover:bg-gray-800">
+            episodes &&
+            episodes.map(item => (
+              <div key={item.trackId} className="flex flex-row bg-gray-900 mb-2 hover:bg-gray-800">
                 <img
                   className="object-cover rounded"
                   alt="User avatar"
@@ -55,13 +51,7 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
                 <div className="text-gray-100 p-2 px-4 text-left">
                   <p className="">{item.trackName}</p>
                   <EpisodeDescription description={item.shortDescription} />
-                  {/* <div className="pt-3 flex ">
-                    <PlayButton url={item.episodeUrl} />
-                    <ReleaseDate date={item.releaseDate} />
-                    <EpisodeDuration duration={item.trackTimeMillis} />
-                  </div> */}
                 </div>
-
               </div>
             ))
           }

@@ -54,6 +54,10 @@ function SearchScreen(props) {
   const handleClick = (collectionId) => {
     history.push(`podcast/${collectionId}`)
   }
+  
+  const handleBack = () => {
+    history.goBack()
+  }
 
   const { resultCount: podcastResultCount, results: podcastResults } = searchPodcastResults
   const { resultCount: episodeResultCount, results: episodeResults } = searchEpisodeResults
@@ -65,7 +69,12 @@ function SearchScreen(props) {
         <div className="flex flex-row space-x-5 pt-3">
           <div className="py-3">
             <p className="bg-gray-800 rounded-full">
-              <img src={left_chevron_circle} className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600 cursor-pointer" alt="left_chevron" />
+              <img 
+                src={left_chevron_circle} 
+                className="w-8 -p-4 rounded-full bg-gray-400 hover:bg-gray-600 cursor-pointer" 
+                alt="left_chevron"
+                onClick={() => handleBack()}
+                 />
             </p>
           </div>
 
