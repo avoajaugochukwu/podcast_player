@@ -1,20 +1,29 @@
 import React from 'react'
-
+// import { useDispatch, connect, useSelector } from 'react-redux'
+// import { withRouter } from 'react-router'
 import PlayButton from './PlayButton'
 import ReleaseDate from './ReleaseDate'
 import EpisodeDuration from './EpisodeDuration'
 import EpisodeDescription from './EpisodeDescription'
 
-const PodcastDetailsEpisodes = ({ episodes }) => {
+// import { play } from '../redux/actions/playEpisodeActions'
 
+const PodcastDetailsEpisodes = ({ episodes }) => {
+  // const dispatch = useDispatch()
+
+  // const addTrackToRedux = (url) => {
+  //   console.log(url)
+  //   dispatch(play(url))
+    
+  // }
   return (
     <>
       {
         episodes &&
         <>
-          {episodes.map(item => (
+          {episodes.map(episode => (
             <div
-              key={item.releaseDate}
+              key={episode.releaseDate}
               className="my-3"
             >
               <div
@@ -24,17 +33,18 @@ const PodcastDetailsEpisodes = ({ episodes }) => {
                 <img
                   className="object-cover w-32 h-32 rounded"
                   alt="User avatar"
-                  src={item.artworkUrl160} />
+                  src={episode.artworkUrl160} />
 
                 <div className="flex items-center">
                   <div className="pl-3">
                     <div className=" dark:text-gray-200">
-                      <h3 className="font-medium pb-2 text-white">{item.trackName}</h3>
-                      <EpisodeDescription description={item.description} />
+                      <h3 className="font-medium pb-2 text-white">{episode.trackName}</h3>
+                      <EpisodeDescription description={episode.description} />
                       <div className="pt-3 flex ">
-                        <PlayButton url={item.episodeUrl} />
-                        <ReleaseDate date={item.releaseDate} />
-                        <EpisodeDuration duration={item.trackTimeMillis} />
+                        {/* {console.log(episode)} */}
+                        <PlayButton url={episode.episodeUrl} episode={episode} />
+                        <ReleaseDate date={episode.releaseDate} />
+                        <EpisodeDuration duration={episode.trackTimeMillis} />
                       </div>
                     </div>
                   </div>
@@ -52,5 +62,9 @@ const PodcastDetailsEpisodes = ({ episodes }) => {
     </>
   )
 }
+
+// const mapStateToProps = (state) => ({
+//   currentTrack: state.currentTrack
+// })
 
 export default PodcastDetailsEpisodes
