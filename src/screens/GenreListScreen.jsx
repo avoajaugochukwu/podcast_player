@@ -23,9 +23,7 @@ const GenreListScreen = (props) => {
 
   const { results } = podcasts
 
-
   const history = useHistory()
-  console.log(history)
   const handleClick = (collectionId) => {
     history.push(`../podcast/${collectionId}`)
   }
@@ -37,7 +35,7 @@ const GenreListScreen = (props) => {
         results ?
         <>
           <section className="container px-5 mx-auto">
-            <h1 className="text-left text-gray-100 text-2xl py-2 sm:pt-10 font-bold pb-5 ">Top genres</h1>
+            <h1 className="text-left text-gray-100 text-2xl py-2 sm:pt-10 font-bold pb-5 ">{results[0].genres[0]}</h1>
             
               <div className="flex flex-wrap">
                 {
