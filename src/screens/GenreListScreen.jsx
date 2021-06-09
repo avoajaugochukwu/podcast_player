@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 import { BASE_URL } from '../utils/consts'
+import Loading from '../containers/Spinner/Loading'
 
 const GenreListScreen = (props) => {
   const { match: { params: { genreId } } } = props
@@ -33,7 +34,7 @@ const GenreListScreen = (props) => {
   return (
     <>
       {
-        results &&
+        results ?
         <>
           <section className="container px-5 mx-auto">
             <h1 className="text-left text-gray-100 text-2xl py-2 sm:pt-10 font-bold pb-5 ">Top genres</h1>
@@ -67,6 +68,8 @@ const GenreListScreen = (props) => {
             
           </section>
         </>
+        :
+        <Loading />
       }
 
     </>
