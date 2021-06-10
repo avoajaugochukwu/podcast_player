@@ -5,10 +5,15 @@ import { play, pause } from '../redux/actions/playEpisodeActions'
 import play_button from '../img/play_button.svg'
 import pause_button from '../img/pause_button.svg'
 
-const PlayButton = ({ url, episode, trackId }) => {
+const PlayButton = ({ url, episode, trackId, handlePlay }) => {
   const dispatch = useDispatch()
   const currentTrack = useSelector((state) => state.currentTrack)
-  const { isPlaying } = currentTrack
+  const { isPlaying, episode: { episodeUrl } } = currentTrack
+
+  let playing, paused
+  if (isPlaying === true && url === episodeUrl) {
+    playing = true
+  }
   // const addTrackToRedux = (url) => {
   //   console.log(url)
   //   dispatch(play(url))
@@ -17,17 +22,17 @@ const PlayButton = ({ url, episode, trackId }) => {
 
   const [audio] = useState(new Audio(url))
   audio.preload = 'none'
-  const [playing, setPlaying] = useState(false)
+  // const [playing, setPlaying] = useState(false)
 
-  const toggle = () => {
-    setPlaying(!playing)
-  }
+  // const toggle = () => {
+  //   setPlaying(!playing)
+  // }
 
-  const handlePlay = () => {
-    dispatch(play(episode))
-    // toggle()
-    
-  }
+  // const handlePlay = () => {
+  //   dispatch(play(episode))
+  //   // toggle()
+
+  // }
 
   const handlePause = () => {
     // toggle()
@@ -60,14 +65,14 @@ const PlayButton = ({ url, episode, trackId }) => {
 
   return (
     <>
-      {/* {
+      {
         playing ?
           <img
             src={pause_button}
             alt="button"
             onClick={handlePause}
-            id={trackId} 
-            />
+            id={trackId}
+          />
           :
           <img
             src={play_button}
@@ -75,7 +80,7 @@ const PlayButton = ({ url, episode, trackId }) => {
             onClick={handlePlay}
             id={trackId}
           />
-      } */}
+      }
       {/* <p className="text-white" onClick={handleClick}>play/pause</p> */}
       {/* <audio id={trackId}>
         <source id={trackId} src={url} type="audio/mp3" />

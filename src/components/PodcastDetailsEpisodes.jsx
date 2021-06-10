@@ -1,29 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, connect, useSelector } from 'react-redux'
-import { withRouter } from 'react-router'
+// import { withRouter } from 'react-router'
 import PlayButton from './PlayButton'
 import ReleaseDate from './ReleaseDate'
 import EpisodeDuration from './EpisodeDuration'
 import EpisodeDescription from './EpisodeDescription'
+
+import play_button from '../img/play_button.svg'
+import pause_button from '../img/pause_button.svg'
 
 import { play, pause } from '../redux/actions/playEpisodeActions'
 
 const PodcastDetailsEpisodes = ({ episodes }) => {
   const dispatch = useDispatch()
   const currentTrack = useSelector((state) => state.currentTrack)
-  const { isPlaying } = currentTrack
-  console.log(isPlaying)
+  const { isPlaying, episode: { episodeUrl } } = currentTrack
 
-  // const handleClick = (e, episode) => {
+  const handlePlay = (episode) => (e) => {
+    const x = document.getElementById(episode.episodeUrl)
+    dispatch(play(episode))
+    x.play()
+  }
+
+  const handlePause = (episode) => (e) => {
+    const x = document.getElementById(episode.episodeUrl)
+    x.pause()
+    dispatch(pause())
+  }
+
+  // const handleClick = (episode) => (e) => {
   //   dispatch(play(episode))
   // }
 
-  const handleClick = (episode) => (e) => {
-    dispatch(play(episode))
-
-  }
-
-  // console.log(isPlaying)
   return (
     <>
       {
@@ -49,13 +57,24 @@ const PodcastDetailsEpisodes = ({ episodes }) => {
                       <h3 className="font-medium pb-2 text-white">{episode.trackName}</h3>
                       <EpisodeDescription description={episode.description} />
                       <div className="pt-3 flex ">
-
-                        {/* <PlayButton 
-                          url={episode.episodeUrl} 
-                          episode={episode} 
-                          trackId={episode.trackId} /> */}
-                        {/* <p onClick={(e) => handleClick(e, episode)} >play/pause</p> */}
-                        <p onClick={(e) => handleClick(episode)(e)}>play/pause</p>
+                        {
+                          isPlaying === true && episodeUrl === episode.episodeUrl ?
+                            <img
+                              src={pause_button}
+                              alt="button"
+                              onClick={(e) => handlePause(episode)(e)}
+                              id={episode.trackId}
+                            />
+                            :
+                            <img
+                              src={play_button}
+                              alt="button"
+                              onClick={(e) => handlePlay(episode)(e)}
+                              id={episode.trackId}
+                            />
+                        }
+                        <audio src={episode.episodeUrl} preload="none" id={episode.episodeUrl}></audio>
+                        {/* <p onClick={(e) => handleClick(episode)(e)}>play/pause</p> */}
                         <ReleaseDate date={episode.releaseDate} />
                         <EpisodeDuration duration={episode.trackTimeMillis} />
                       </div>
