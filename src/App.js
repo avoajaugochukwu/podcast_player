@@ -16,11 +16,7 @@ function App() {
         <div className="flex relative">
           <SideBar />
           <MainSection />
-          <div 
-            className="fixed left-0 bottom-0 min-w-full z-10 h-24 bg-gray-800" 
-            style={{backgroundColor: "#1a1a1a"}}>
-              <Footer />
-          </div>
+          <Footer />
         </div>
       </BrowserRouter>
     </div>
