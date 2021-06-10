@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import SideBar from './containers/SideBar/SideBar'
 import MainSection from './containers/MainSection/MainSection'
-import Footer from './components/Footer'
+import FooterPlayer from './components/FooterPlayer'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { play, pause } from './redux/actions/playEpisodeActions'
@@ -42,7 +42,7 @@ function App() {
         <div className="flex relative">
           <SideBar />
           <MainSection handlePause={handlePause} handlePlay={handlePlay}  />
-          <Footer handlePause={handlePause} handlePlay={handlePlay} />
+          <FooterPlayer handlePause={handlePause} handlePlay={handlePlay} />
         </div>
       </BrowserRouter>
     </div>
