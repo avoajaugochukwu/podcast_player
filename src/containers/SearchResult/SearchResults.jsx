@@ -50,7 +50,7 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
                   src={item.artworkUrl60} />
                 <div className="text-gray-100 p-2 px-4 text-left">
                   <p className="">{item.trackName}</p>
-                  <EpisodeDescription description={item.shortDescription} />
+                  <EpisodeDescription description={item.shortDescription} characterCount={150} readMore={true} />
                 </div>
               </div>
             ))

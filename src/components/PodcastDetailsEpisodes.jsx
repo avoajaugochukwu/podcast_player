@@ -18,6 +18,7 @@ const PodcastDetailsEpisodes = ({ episodes }) => {
   const handlePlay = (episode) => (e) => {
     const x = document.getElementById(episode.episodeUrl)
     dispatch(play(episode))
+    stopAllAudio()
     x.play()
   }
 
@@ -25,6 +26,13 @@ const PodcastDetailsEpisodes = ({ episodes }) => {
     const x = document.getElementById(episode.episodeUrl)
     x.pause()
     dispatch(pause())
+  }
+
+  const stopAllAudio = () => {
+    var allAudios = document.querySelectorAll('audio');
+    allAudios.forEach(function (audio) {
+      audio.pause();
+    });
   }
 
   // const handleClick = (episode) => (e) => {
@@ -54,7 +62,7 @@ const PodcastDetailsEpisodes = ({ episodes }) => {
                   <div className="pl-3">
                     <div className=" dark:text-gray-200">
                       <h3 className="font-medium pb-2 text-white">{episode.trackName}</h3>
-                      <EpisodeDescription description={episode.description} />
+                      <EpisodeDescription description={episode.description} characterCount={150} readMore={true} />
                       <div className="pt-3 flex ">
                         {
                           isPlaying === true && episodeUrl === episode.episodeUrl ?

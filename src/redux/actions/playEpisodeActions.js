@@ -31,11 +31,11 @@ export const pause = () => (dispatch, getState) => {
 
 export const getEpisodeDetails = (episode) => {
   // console.log(episode)
-  const { episodeUrl, artworkUrl160, trackId, trackTimeMillis, trackName, shortDescription, collectionName } = episode
+  const { episodeUrl, artworkUrl60, trackId, trackTimeMillis, trackName, shortDescription, collectionName } = episode
 
   const episodeDetails = {
     episodeUrl,
-    artworkUrl160, 
+    artworkUrl60, 
     trackId, 
     trackTimeMillis, 
     trackName, 
