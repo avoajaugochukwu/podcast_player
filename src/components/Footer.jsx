@@ -1,11 +1,11 @@
 import React from 'react'
-import { useDispatch, connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import EpisodeDescription from '../components/EpisodeDescription'
 
 import play_button from '../img/play_button.svg'
 import pause_button from '../img/pause_button.svg'
 
-const Footer = () => {
+const Footer = ({ handlePause, handlePlay }) => {
   const currentTrack = useSelector((state) => state.currentTrack)
   const { isPlaying, episode } = currentTrack
 
@@ -25,7 +25,24 @@ const Footer = () => {
                   className=" rounded"
                   alt="User avatar"
                   src={episode.artworkUrl60} />
-
+                {/*  */}
+                {
+                  isPlaying === true && episodeUrl === episode.episodeUrl ?
+                    <img
+                      src={pause_button}
+                      alt="button"
+                      onClick={(e) => handlePause(episode)(e)}
+                      id={episode.trackId}
+                    />
+                    :
+                    <img
+                      src={play_button}
+                      alt="button"
+                      onClick={(e) => handlePlay(episode)(e)}
+                      id={episode.trackId}
+                    />
+                }
+                {/*  */}
                 <div className="text-gray-100 p-2 px-4 text-left">
                   <p className="">{episode.trackName}</p>
                   <EpisodeDescription description={episode.shortDescription} characterCount={100} readMore={false} />

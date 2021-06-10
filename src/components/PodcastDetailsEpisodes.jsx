@@ -1,6 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-// import { withRouter } from 'react-router'
+import { useSelector } from 'react-redux'
 import ReleaseDate from './ReleaseDate'
 import EpisodeDuration from './EpisodeDuration'
 import EpisodeDescription from './EpisodeDescription'
@@ -8,36 +7,10 @@ import EpisodeDescription from './EpisodeDescription'
 import play_button from '../img/play_button.svg'
 import pause_button from '../img/pause_button.svg'
 
-import { play, pause } from '../redux/actions/playEpisodeActions'
-
-const PodcastDetailsEpisodes = ({ episodes }) => {
-  const dispatch = useDispatch()
+const PodcastDetailsEpisodes = ({ episodes, handlePause, handlePlay }) => {
   const currentTrack = useSelector((state) => state.currentTrack)
   const { isPlaying, episode: { episodeUrl } } = currentTrack
 
-  const handlePlay = (episode) => (e) => {
-    const x = document.getElementById(episode.episodeUrl)
-    dispatch(play(episode))
-    stopAllAudio()
-    x.play()
-  }
-
-  const handlePause = (episode) => (e) => {
-    const x = document.getElementById(episode.episodeUrl)
-    x.pause()
-    dispatch(pause())
-  }
-
-  const stopAllAudio = () => {
-    var allAudios = document.querySelectorAll('audio');
-    allAudios.forEach(function (audio) {
-      audio.pause();
-    });
-  }
-
-  // const handleClick = (episode) => (e) => {
-  //   dispatch(play(episode))
-  // }
 
   return (
     <>

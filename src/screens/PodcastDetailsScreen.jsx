@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-
 import PodcastDetailsBody from '../components/PodcastDetailsBody'
 import PodcastDetailsHeader from '../components/PodcastDetailsHeader'
 
@@ -11,8 +10,7 @@ import Loading from '../containers/Spinner/Loading'
 
 import { BASE_URL } from '../utils/consts'
 
-function PodcastDetailsScreen(props) {
-  const { match: { params: { collectionId } } } = props
+function PodcastDetailsScreen({ match: { params: { collectionId } }, handlePause, handlePlay }) {
 
   const [podcast, setPodcast] = useState({})
 
@@ -35,14 +33,14 @@ function PodcastDetailsScreen(props) {
     podcastDetails = results[0]
     podcastList = results.slice(1, results.length)
   }
-  
+
   return (
     <section>
       {
         results ?
           <>
             <PodcastDetailsHeader podcastDetails={podcastDetails} />
-            <PodcastDetailsBody episodes={podcastList} />
+            <PodcastDetailsBody episodes={podcastList} handlePause={handlePause} handlePlay={handlePlay} />
           </>
           :
           <>
@@ -59,9 +57,4 @@ const getPodcast = async (collectionId) => {
   return response.data
 }
 
-
-
-
 export default PodcastDetailsScreen
-
-
