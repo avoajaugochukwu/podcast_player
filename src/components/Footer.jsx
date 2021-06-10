@@ -1,13 +1,11 @@
 import React from 'react'
-import { useDispatch, connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import EpisodeDescription from '../components/EpisodeDescription'
 
-import play_button from '../img/play_button.svg'
-import pause_button from '../img/pause_button.svg'
 
 const Footer = () => {
   const currentTrack = useSelector((state) => state.currentTrack)
-  const { isPlaying, episode } = currentTrack
+  const { episode } = currentTrack
 
   const { episodeUrl } = episode
   return (
@@ -33,13 +31,6 @@ const Footer = () => {
               </div>
 
             </div>
-            {/* <h1 className="text-white">
-              {isPlaying ?
-                'Playing'
-                :
-                'pause'
-              }
-            </h1> */}
           </div>
         </>
       }
