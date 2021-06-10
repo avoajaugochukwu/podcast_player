@@ -12,14 +12,15 @@ import GenreListScreen from '../../screens/GenreListScreen'
 
 import Footer from './Footer'
 
-const MainSection = () => {
+const MainSection = ({ handlePause, handlePlay }) => {
   return (
     <>
       <main className=" player-section md:pl-60 min-h-screen min-w-full">
         <Switch>
           <Route exact path="/" component={HomeScreen}></Route>
           <Route exact path="/Search" component={SearchScreen}></Route>
-          <Route exact path="/podcast/:collectionId" component={PodcastDetailsScreen}></Route>
+          {/* <Route exact path="/podcast/:collectionId" component={PodcastDetailsScreen}></Route> */}
+          <Route exact path="/podcast/:collectionId" render={(props) => (<PodcastDetailsScreen {...props} handlePause={handlePause} handlePlay={handlePlay} />)} />
           <Route exact path="/genre/:genreId" component={GenreListScreen}></Route>
         </Switch>
         <Footer />

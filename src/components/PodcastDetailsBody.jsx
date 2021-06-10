@@ -4,7 +4,8 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import PodcastDetailsEpisodes from './PodcastDetailsEpisodes'
 import LoadMore from '../containers/Spinner/LoadMore'
 
-const PodcastDetailsBody = ({ episodes }) => {
+
+const PodcastDetailsBody = ({ episodes, handlePause, handlePlay }) => {
 
   const [count, setCount] = useState({ prev: 1, next: 10 })
   const [hasMore, setHasMore] = useState(true);
@@ -30,7 +31,7 @@ const PodcastDetailsBody = ({ episodes }) => {
           hasMore={hasMore}
           loader={<LoadMore />}
         >
-          <PodcastDetailsEpisodes episodes={current} />
+          <PodcastDetailsEpisodes episodes={current} handlePause={handlePause} handlePlay={handlePlay} />
         </InfiniteScroll>
       </div>
 
@@ -44,7 +45,5 @@ const PodcastDetailsBody = ({ episodes }) => {
     </div>
   )
 }
-
-
 
 export default PodcastDetailsBody

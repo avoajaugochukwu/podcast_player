@@ -11,7 +11,6 @@ const initialState = {
 
 
 export const playEpisodeReducer = (state = initialState, action) => {
-  // console.log(action?.payload)
   switch (action.type) {
     case EPISODE_PLAY_REQUEST:
       return {

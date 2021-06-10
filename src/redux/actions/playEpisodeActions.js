@@ -14,8 +14,7 @@ export const play = (episode) => async (dispatch, getState) => {
 
   try {
     dispatch({
-      type: EPISODE_PLAYING,
-      payload: episode
+      type: EPISODE_PLAYING
     })
   } catch (error) {
 
