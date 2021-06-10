@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 
@@ -13,21 +13,29 @@ import { play, pause } from './redux/actions/playEpisodeActions'
 import './App.css';
 // @Todo: Find a way to add the dynamic title to the app
 function App() {
+  const [audio, setAudio] = useState({})
   const dispatch = useDispatch()
   // const currentTrack = useSelector((state) => state.currentTrack)
   // const { isPlaying, episode: { episodeUrl } } = currentTrack
-
+  // console.log(audio)
   const handlePlay = (episode) => (e) => {
-    const x = document.getElementById(episode.episodeUrl)
+    
+    // const x = document.getElementById(episode.episodeUrl)
+    const x = new Audio(episode.episodeUrl)
+    setAudio(x)
     dispatch(play(episode))
+    // dispatch(play(audio))
     stopAllAudio()
     x.play()
+    
   }
 
   const handlePause = (episode) => (e) => {
-    const x = document.getElementById(episode.episodeUrl)
-    x.pause()
+    // const x = document.getElementById(episode.episodeUrl)
+    // const x = new Audio(episode.episodeUrl)
+    audio.pause()
     dispatch(pause())
+    // console.log(x)
   }
 
   const stopAllAudio = () => {
@@ -42,7 +50,7 @@ function App() {
         <div className="flex relative">
           <SideBar />
           <MainSection handlePause={handlePause} handlePlay={handlePlay}  />
-          <FooterPlayer handlePause={handlePause} handlePlay={handlePlay} />
+          <FooterPlayer handlePause={handlePause} handlePlay={handlePlay} state={{ audio: [audio, setAudio]}} />
         </div>
       </BrowserRouter>
     </div>

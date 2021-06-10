@@ -43,14 +43,14 @@ const PodcastDetailsEpisodes = ({ episodes, handlePause, handlePlay }) => {
                               src={pause_button}
                               alt="button"
                               onClick={(e) => handlePause(episode)(e)}
-                              id={episode.trackId}
+                              // id={episode.trackId}
                             />
                             :
                             <img
                               src={play_button}
                               alt="button"
                               onClick={(e) => handlePlay(episode)(e)}
-                              id={episode.trackId}
+                              // id={episode.trackId}
                             />
                         }
                         <audio src={episode.episodeUrl} preload="none" id={episode.episodeUrl}></audio>
