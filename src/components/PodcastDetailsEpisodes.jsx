@@ -1,21 +1,29 @@
-import React from 'react'
-// import { useDispatch, connect, useSelector } from 'react-redux'
-// import { withRouter } from 'react-router'
+import React, { useState } from 'react'
+import { useDispatch, connect, useSelector } from 'react-redux'
+import { withRouter } from 'react-router'
 import PlayButton from './PlayButton'
 import ReleaseDate from './ReleaseDate'
 import EpisodeDuration from './EpisodeDuration'
 import EpisodeDescription from './EpisodeDescription'
 
-// import { play } from '../redux/actions/playEpisodeActions'
+import { play, pause } from '../redux/actions/playEpisodeActions'
 
 const PodcastDetailsEpisodes = ({ episodes }) => {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const currentTrack = useSelector((state) => state.currentTrack)
+  const { isPlaying } = currentTrack
+  console.log(isPlaying)
 
-  // const addTrackToRedux = (url) => {
-  //   console.log(url)
-  //   dispatch(play(url))
-    
+  // const handleClick = (e, episode) => {
+  //   dispatch(play(episode))
   // }
+
+  const handleClick = (episode) => (e) => {
+    dispatch(play(episode))
+
+  }
+
+  // console.log(isPlaying)
   return (
     <>
       {
@@ -41,8 +49,13 @@ const PodcastDetailsEpisodes = ({ episodes }) => {
                       <h3 className="font-medium pb-2 text-white">{episode.trackName}</h3>
                       <EpisodeDescription description={episode.description} />
                       <div className="pt-3 flex ">
-                        {/* {console.log(episode)} */}
-                        <PlayButton url={episode.episodeUrl} episode={episode} />
+
+                        {/* <PlayButton 
+                          url={episode.episodeUrl} 
+                          episode={episode} 
+                          trackId={episode.trackId} /> */}
+                        {/* <p onClick={(e) => handleClick(e, episode)} >play/pause</p> */}
+                        <p onClick={(e) => handleClick(episode)(e)}>play/pause</p>
                         <ReleaseDate date={episode.releaseDate} />
                         <EpisodeDuration duration={episode.trackTimeMillis} />
                       </div>

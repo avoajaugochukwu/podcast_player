@@ -5,7 +5,7 @@ import { play, pause } from '../redux/actions/playEpisodeActions'
 import play_button from '../img/play_button.svg'
 import pause_button from '../img/pause_button.svg'
 
-const PlayButton = ({ url, episode }) => {
+const PlayButton = ({ url, episode, trackId }) => {
   const dispatch = useDispatch()
   const currentTrack = useSelector((state) => state.currentTrack)
   const { isPlaying } = currentTrack
@@ -24,56 +24,80 @@ const PlayButton = ({ url, episode }) => {
   }
 
   const handlePlay = () => {
-    toggle()
     dispatch(play(episode))
+    // toggle()
+    
   }
 
   const handlePause = () => {
-    toggle()
+    // toggle()
     dispatch(pause())
   }
-
+  // console.log(isPlaying)
   // useEffect(() => {
   //   toggle()
   // }, [isPlaying])
-  console.log(isPlaying)
+  // console.log(isPlaying)
 
-  useEffect(() => {
-    // playing ? audio.play() : audio.pause()
-    if (playing) {
-      audio.play()
-      .then(console.log('You can now display pause'))
-    }
-    if (playing === false) {
-      audio.pause()
-    }
-  }, [audio, playing])
+  // useEffect(() => {
+  //   playing ? audio.play() : audio.pause()
 
-  useEffect(() => {
-    audio.addEventListener("ended", () => setPlaying(false))
-    return () => {
-      audio.removeEventListener("ended", () => setPlaying(false))
-    };
-  });
+  // }, [audio, playing])
+
+  // useEffect(() => {
+  //   audio.addEventListener("ended", () => setPlaying(false))
+  //   return () => {
+  //     audio.removeEventListener("ended", () => setPlaying(false))
+  //   };
+  // });
+
+  const handleClick = () => {
+    // toggle()
+    // playing ? loadPlay(url, true) : loadPlay(url, false)
+    loadPlay(url, true)
+    // console.log(url)
+  }
 
   return (
     <>
-      {
+      {/* {
         playing ?
           <img
             src={pause_button}
             alt="button"
-            onClick={handlePause} />
+            onClick={handlePause}
+            id={trackId} 
+            />
           :
           <img
             src={play_button}
             alt="button"
             onClick={handlePlay}
+            id={trackId}
           />
-      }
+      } */}
+      {/* <p className="text-white" onClick={handleClick}>play/pause</p> */}
+      {/* <audio id={trackId}>
+        <source id={trackId} src={url} type="audio/mp3" />
+        play/pause
+      </audio> */}
     </>
-  );
-};
+  )
+}
+
+const loadPlay = (url, play) => {
+  const audio = new Audio(url)
+  if (play) {
+    console.log('000000000000')
+    audio.play().then(data => console.log(data))
+
+
+  } else {
+    audio.pause()
+  }
+
+}
+
 
 const mapStateToProps = (state) => ({
   currentTrack: state.currentTrack

@@ -8,9 +8,7 @@ const initialState = {
   home: {
     homePodcasts: localStorage.getItem('homePodcasts') ? JSON.parse(localStorage.getItem('homePodcasts')) : {},
   },
-  currentTrack: {
-    playing : {}
-  }
+  currentTrack: {}
 }
 
 
