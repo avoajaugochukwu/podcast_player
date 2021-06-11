@@ -1,7 +1,6 @@
 
-import React, { useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-
 
 import SideBar from './containers/SideBar/SideBar'
 import MainSection from './containers/MainSection/MainSection'
@@ -15,35 +14,36 @@ import './App.css';
 function App() {
   const [audio, setAudio] = useState({})
   const dispatch = useDispatch()
-  // const currentTrack = useSelector((state) => state.currentTrack)
-  // const { isPlaying, episode: { episodeUrl } } = currentTrack
-  // console.log(audio)
-  const handlePlay = (episode) => (e) => {
-    
-    // const x = document.getElementById(episode.episodeUrl)
-    const x = new Audio(episode.episodeUrl)
-    setAudio(x)
-    dispatch(play(episode))
-    // dispatch(play(audio))
-    stopAllAudio()
-    x.play()
-    
+  const currentTrack = useSelector((state) => state.currentTrack)
+  const { episode: { episodeUrl } } = currentTrack
+
+  document.title = 'Podcast Player' 
+
+  const handlePlay = (episode) => (e) => {  
+    let sound
+    if (!episodeUrl) {
+      sound = new Audio(episode.episodeUrl)
+      sound.play()
+      setAudio(sound)
+      dispatch(play(episode))
+    } else if (episodeUrl !== episode.episodeUrl) {
+      audio.pause()
+      sound = new Audio(episode.episodeUrl)
+      sound.play()
+      setAudio(sound)
+      dispatch(play(episode))
+    } else {
+      audio.play()
+      dispatch(play(episode))
+    }
   }
 
-  const handlePause = (episode) => (e) => {
-    // const x = document.getElementById(episode.episodeUrl)
-    // const x = new Audio(episode.episodeUrl)
+  const handlePause = () => {
     audio.pause()
     dispatch(pause())
-    // console.log(x)
   }
 
-  const stopAllAudio = () => {
-    var allAudios = document.querySelectorAll('audio');
-    allAudios.forEach(function (audio) {
-      audio.pause();
-    });
-  }
+
   return (
     <div className="App">
       <BrowserRouter>

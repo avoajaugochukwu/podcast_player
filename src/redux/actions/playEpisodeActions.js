@@ -1,11 +1,9 @@
 import { EPISODE_PLAY_REQUEST, EPISODE_PLAYING, EPISODE_PAUSE } from '../reducers/playEpisodeReducer'
 
 
-export const play = (episode) => async (dispatch, getState) => {
-  // const { currentTrack: { playing } } = getState()
+export const play = (episode) => async (dispatch) => {
 
   const episodeDetails = getEpisodeDetails(episode)
-  // console.log(episodeDetails)
   
   dispatch ({
     type: EPISODE_PLAY_REQUEST,
@@ -17,19 +15,18 @@ export const play = (episode) => async (dispatch, getState) => {
       type: EPISODE_PLAYING
     })
   } catch (error) {
-
+    console.log(error)
   }
 }
 
 
-export const pause = () => (dispatch, getState) => {
+export const pause = () => (dispatch) => {
   dispatch({
     type: EPISODE_PAUSE
   })
 }
 
 export const getEpisodeDetails = (episode) => {
-  // console.log(episode)
   const { episodeUrl, artworkUrl60, trackId, trackTimeMillis, trackName, shortDescription, collectionName } = episode
 
   const episodeDetails = {

@@ -42,7 +42,7 @@ const PodcastDetailsEpisodes = ({ episodes, handlePause, handlePlay }) => {
                             <img
                               src={pause_button}
                               alt="button"
-                              onClick={(e) => handlePause(episode)(e)}
+                              onClick={handlePause}
                               // id={episode.trackId}
                             />
                             :
@@ -53,7 +53,7 @@ const PodcastDetailsEpisodes = ({ episodes, handlePause, handlePlay }) => {
                               // id={episode.trackId}
                             />
                         }
-                        <audio src={episode.episodeUrl} preload="none" id={episode.episodeUrl}></audio>
+                        {/* <audio src={episode.episodeUrl} preload="none" id={episode.episodeUrl}></audio> */}
                         {/* <p onClick={(e) => handleClick(episode)(e)}>play/pause</p> */}
                         <ReleaseDate date={episode.releaseDate} />
                         <EpisodeDuration duration={episode.trackTimeMillis} />

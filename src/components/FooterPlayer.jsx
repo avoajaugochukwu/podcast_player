@@ -34,7 +34,7 @@ const FooterPlayer = ({ handlePause, handlePlay }) => {
                       <img
                         src={pause_button}
                         alt="button"
-                        onClick={(e) => handlePause(episode)(e)}
+                        onClick={handlePause}
                         id={episode.trackId}
                         className="align-middle md:pl-3 pl-2"
                       />
