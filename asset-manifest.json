@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/podcast-player/static/css/main.0f4dc1fa.chunk.css",
+    "main.js": "/podcast-player/static/js/main.0dfa1cd9.chunk.js",
+    "main.js.map": "/podcast-player/static/js/main.0dfa1cd9.chunk.js.map",
+    "runtime-main.js": "/podcast-player/static/js/runtime-main.feb7c0fd.js",
+    "runtime-main.js.map": "/podcast-player/static/js/runtime-main.feb7c0fd.js.map",
+    "static/js/2.b7f9fbb2.chunk.js": "/podcast-player/static/js/2.b7f9fbb2.chunk.js",
+    "static/js/2.b7f9fbb2.chunk.js.map": "/podcast-player/static/js/2.b7f9fbb2.chunk.js.map",
+    "static/js/3.31bd2075.chunk.js": "/podcast-player/static/js/3.31bd2075.chunk.js",
+    "static/js/3.31bd2075.chunk.js.map": "/podcast-player/static/js/3.31bd2075.chunk.js.map",
+    "index.html": "/podcast-player/index.html",
+    "static/css/main.0f4dc1fa.chunk.css.map": "/podcast-player/static/css/main.0f4dc1fa.chunk.css.map",
+    "static/js/2.b7f9fbb2.chunk.js.LICENSE.txt": "/podcast-player/static/js/2.b7f9fbb2.chunk.js.LICENSE.txt",
+    "static/media/cancel_close_delete_icon.3acc8be9.svg": "/podcast-player/static/media/cancel_close_delete_icon.3acc8be9.svg",
+    "static/media/chevron_circle_left_icon.d628f34a.svg": "/podcast-player/static/media/chevron_circle_left_icon.d628f34a.svg",
+    "static/media/chevron_circle_right_icon.ef7d1ff9.svg": "/podcast-player/static/media/chevron_circle_right_icon.ef7d1ff9.svg",
+    "static/media/home_icon.e26fe5d9.svg": "/podcast-player/static/media/home_icon.e26fe5d9.svg",
+    "static/media/logo.7220c71e.svg": "/podcast-player/static/media/logo.7220c71e.svg",
+    "static/media/pause_button.ca0f8cc0.svg": "/podcast-player/static/media/pause_button.ca0f8cc0.svg",
+    "static/media/play_button.3161de9a.svg": "/podcast-player/static/media/play_button.3161de9a.svg",
+    "static/media/search_icon_black.8299076a.svg": "/podcast-player/static/media/search_icon_black.8299076a.svg",
+    "static/media/search_icon_white.3890c726.svg": "/podcast-player/static/media/search_icon_white.3890c726.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.feb7c0fd.js",
+    "static/js/2.b7f9fbb2.chunk.js",
+    "static/css/main.0f4dc1fa.chunk.css",
+    "static/js/main.0dfa1cd9.chunk.js"
+  ]
+}
