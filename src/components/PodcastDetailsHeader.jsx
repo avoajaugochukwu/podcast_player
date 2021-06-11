@@ -38,7 +38,7 @@ const PodcastDetailsHeader = ({ podcastDetails }) => {
 
       </div>
       <div className="px-8 flex flex-row">
-              <ListenButton /> {/* the non functional red button */}
+              {/* <ListenButton /> the non functional red button */}
       </div>
     </div>
   )
