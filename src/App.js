@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter, useLocation } from 'react-router-dom'
+// import { BrowserRouter, useLocation } from 'react-router-dom'
+import { HashRouter, useLocation } from 'react-router-dom'
 
 import SideBar from './containers/SideBar/SideBar'
 import MainSection from './containers/MainSection/MainSection'
@@ -47,14 +48,14 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
       <ScrollToTop />
         <div className="flex relative">
           <SideBar />
           <MainSection handlePause={handlePause} handlePlay={handlePlay}  />
           <FooterPlayer handlePause={handlePause} handlePlay={handlePlay} state={{ audio: [audio, setAudio]}} />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
