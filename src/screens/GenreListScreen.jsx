@@ -77,6 +77,6 @@ const GenreListScreen = (props) => {
 export default GenreListScreen
 
 const getPodcasts = async (genreId) => {
-  const response = await axios.get(`${BASE_URL}search?term=podcast&genreId=${genreId}&limit=10`)
+  const response = await axios.get(`${BASE_URL}search?term=podcast&genreId=${genreId}&limit=200`)
   return response.data
 }
