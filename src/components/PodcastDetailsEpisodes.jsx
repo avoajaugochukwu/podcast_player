@@ -43,18 +43,14 @@ const PodcastDetailsEpisodes = ({ episodes, handlePause, handlePlay }) => {
                               src={pause_button}
                               alt="button"
                               onClick={handlePause}
-                              // id={episode.trackId}
                             />
                             :
                             <img
                               src={play_button}
                               alt="button"
                               onClick={(e) => handlePlay(episode)(e)}
-                              // id={episode.trackId}
                             />
                         }
-                        {/* <audio src={episode.episodeUrl} preload="none" id={episode.episodeUrl}></audio> */}
-                        {/* <p onClick={(e) => handleClick(episode)(e)}>play/pause</p> */}
                         <ReleaseDate date={episode.releaseDate} />
                         <EpisodeDuration duration={episode.trackTimeMillis} />
                       </div>

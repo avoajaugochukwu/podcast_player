@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter, useLocation } from 'react-router-dom'
 
 import SideBar from './containers/SideBar/SideBar'
 import MainSection from './containers/MainSection/MainSection'
@@ -10,14 +10,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { play, pause } from './redux/actions/playEpisodeActions'
 
 import './App.css';
-// @Todo: Find a way to add the dynamic title to the app
+
 function App() {
   const [audio, setAudio] = useState({})
   const dispatch = useDispatch()
   const currentTrack = useSelector((state) => state.currentTrack)
-  const { episode: { episodeUrl } } = currentTrack
+  const { isPlaying, episode: { episodeUrl, collectionName } } = currentTrack
 
-  document.title = 'Podcast Player' 
+  document.title = collectionName && isPlaying ? collectionName : 'Podcast Player'
 
   const handlePlay = (episode) => (e) => {  
     let sound
@@ -44,9 +44,11 @@ function App() {
   }
 
 
+
   return (
     <div className="App">
       <BrowserRouter>
+      <ScrollToTop />
         <div className="flex relative">
           <SideBar />
           <MainSection handlePause={handlePause} handlePlay={handlePlay}  />
@@ -58,3 +60,14 @@ function App() {
 }
 
 export default App;
+
+
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}

@@ -27,6 +27,7 @@ export const pause = () => (dispatch) => {
 }
 
 export const getEpisodeDetails = (episode) => {
+  // episode object has so many properties, take only relevant ones
   const { episodeUrl, artworkUrl60, trackId, trackTimeMillis, trackName, shortDescription, collectionName } = episode
 
   const episodeDetails = {
