@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
-import { fetchHomePodcasts } from '../redux/actions/homePodcastsActions'
+import { HOMESCREEN_API_URL } from '../utils/consts'
 
 import HomePodcastSection from '../components/HomePodcastSection'
 import Loading from '../containers/Spinner/Loading'
 
 function HomeScreen(props) {
-  const dispatch = useDispatch()
+
+  const [podcasts, setPodcasts] = useState()
 
   useEffect(() => {
     const fetchAPI = async () => {
-      dispatch(fetchHomePodcasts)
-    }
-    fetchAPI()
-  }, [dispatch])
-
-  const result = useSelector((state) => state.home)
-  const { podcasts, error } = result
+      getPodcasts()
+        .then(data => {
+          setPodcasts(data)
+          
+        })
+        .catch(err => console.log(err))
+    };
+    fetchAPI();
+  }, []);
 
   let popularPodcasts, crimePodcasts, comedyPodcasts, politicsPodcasts
 
@@ -28,13 +31,6 @@ function HomeScreen(props) {
     politicsPodcasts = podcasts.slice(15, 20)
   }
 
-  setTimeout(() => {
-    if (error) {
-      // Task use error page instead of 
-      console.log('I got error')
-      // return <Redirect to='/500' />
-    }
-  }, 3000)
 
   const { history } = props
 
@@ -60,3 +56,8 @@ function HomeScreen(props) {
 }
 
 export default HomeScreen
+
+const getPodcasts = async () => {
+  const response = await axios.get(HOMESCREEN_API_URL)
+  return response.data.results
+}
