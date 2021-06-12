@@ -12,7 +12,7 @@ const PodcastDetailsBody = ({ episodes, handlePause, handlePlay }) => {
   const [current, setCurrent] = useState(episodes.slice(count.prev, count.next))
 
   const getMoreData = () => {
-    if (current.length === episodes.length) {
+    if (current.length  + 10 >= episodes.length) {
       setHasMore(false);
       return;
     }
@@ -23,8 +23,8 @@ const PodcastDetailsBody = ({ episodes, handlePause, handlePlay }) => {
   }
 
   return (
-    <div className="flex max-w-full px-8 text-left text-gray-300">
-      <div className="w-7/12">
+    <div className="flex max-w-full md:px-8 px-0 text-left text-gray-300">
+      <div className="md:w-7/12 w-full">
         <InfiniteScroll
           dataLength={current.length}
           next={getMoreData}
@@ -35,7 +35,7 @@ const PodcastDetailsBody = ({ episodes, handlePause, handlePlay }) => {
         </InfiniteScroll>
       </div>
 
-      <div className="w-5/12 h-32 pl-12">
+      <div className="w-5/12 h-32 pl-12 md:block hidden">
         <h2 className="font-semibold text-2xl">About</h2>
         <p className="text-1xl font-thin pt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur corrupti cupiditate quibusdam magnam ipsum.

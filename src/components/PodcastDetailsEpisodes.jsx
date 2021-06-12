@@ -27,7 +27,7 @@ const PodcastDetailsEpisodes = ({ episodes, handlePause, handlePlay }) => {
                                             hover:bg-gray-900 border-b border-gray-800
                                             shadow-md dark:bg-gray-800 px-4  py-6">
                 <img
-                  className="object-cover w-32 h-32 rounded"
+                  className="object-cover w-32 h-32 rounded pt-5 md:pt-1"
                   alt="User avatar"
                   src={episode.artworkUrl160} />
 

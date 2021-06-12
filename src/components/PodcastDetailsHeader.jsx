@@ -6,14 +6,14 @@ const PodcastDetailsHeader = ({ podcastDetails }) => {
   return (
     <div className={` bg-gradient-to-b ${getGenreGradientColor(podcastDetails.genres[0])}`}>
 
-      <div className="px-8 pt-28 py-6 flex flex-row flex-grow">
+      <div className="md:px-8 md:pt-28 md:py-6 p-3 pb-6 flex flex-row flex-grow">
 
-        <div className=" w-1/5">
+        <div className="md:w-1/5 w-2/6">
           <img src={podcastDetails.artworkUrl600} className="rounded-lg" alt={podcastDetails.artworkUrl600} />
         </div>
 
-        <div className="text-left pl-4 rounded shadow font-semibold hover:shadow-md">
-          <h1 className="text-left text-gray-100 text-5xl pt-5 sm:pt-10 font-black ">
+        <div className="text-left md:pl-4 pl-2 shadow font-semibold hover:shadow-md">
+          <h1 className="text-left text-gray-100 text-3xl md:text-5xl md:pt-5 font-black ">
             {podcastDetails.collectionName}
           </h1>
           <p className="text-left text-gray-100 py-1 pb-1 text-sm font-thin">
