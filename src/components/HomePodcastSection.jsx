@@ -1,4 +1,5 @@
 import React from 'react'
+import EpisodeDescription from './EpisodeDescription'
 
 const HomePodcastSection = (props) => {
 
@@ -21,7 +22,6 @@ const HomePodcastSection = (props) => {
                         <div
                             className="xl:w-1/5 md:w-1/3 sm:w-1/3 w-1/3 px-1 py-2"
                             key={podcast.collectionName}
-                            
                         >
                             <div onClick={() => handleClick(podcast.collectionId)}>
                                 <div className="p-3 bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-lg">
@@ -31,8 +31,11 @@ const HomePodcastSection = (props) => {
                                         <h2 className="text-left mt-2 home-screen-truncate-collection-name text-sm text-white font-medium title-font">
                                             {podcast.collectionName}
                                         </h2>
-                                        <p className="text-left pt-1 text-gray-400 text-xs">
-                                            {podcast.artistName}
+                                        <p className="hidden md:block text-left pt-1 text-gray-400 text-xs">
+                                          {podcast.artistName}
+                                        </p>
+                                        <p className="block md:hidden text-left pt-1 text-gray-400 text-xs">
+                                          { podcast.artistName.length >= 30 ? podcast.artistName.slice(0, 30) + '...' : podcast.artistName.slice(0, 30) }
                                         </p>
                                     </div>
                                 </div>
