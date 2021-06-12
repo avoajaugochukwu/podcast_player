@@ -15,7 +15,7 @@ import Footer from './Footer'
 const MainSection = ({ handlePause, handlePlay }) => {
   return (
     <>
-      <main className=" player-section md:pl-60 min-h-screen min-w-full">
+      <main className=" player-section pl-0 md:pl-60  min-h-screen min-w-full">
         <Switch>
           <Route exact path="/" component={HomeScreen}></Route>
           <Route exact path="/Search" component={SearchScreen}></Route>

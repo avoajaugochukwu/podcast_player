@@ -35,7 +35,7 @@ const SideBar = () => {
         results &&
         <>
           {/* ----------------- Start of Fixed Side Bar --------------------*/}
-          <aside className="min-h-screen pt-4 px-1 w-60 text-white bg-gray-900 bg-black fixed">
+          <aside className="min-h-screen pt-4 md:px-1 px-0 w-0 md:w-60 text-white bg-gray-900 relative md:fixed hidden md:inline-block relative">
             <div className="flex flex-row py-4">
               <img src={logo} alt='logo' />
               <Link

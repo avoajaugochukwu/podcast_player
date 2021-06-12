@@ -5,6 +5,7 @@ import { BrowserRouter, useLocation } from 'react-router-dom'
 
 import SideBar from './containers/SideBar/SideBar'
 import MainSection from './containers/MainSection/MainSection'
+import MobileHeader from './components/MobileHeader'
 import FooterPlayer from './components/FooterPlayer'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -50,11 +51,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <ScrollToTop />
+      <div>
+        <MobileHeader />
         <div className="flex relative">
           <SideBar />
           <MainSection handlePause={handlePause} handlePlay={handlePlay}  />
           <FooterPlayer handlePause={handlePause} handlePlay={handlePlay} state={{ audio: [audio, setAudio]}} />
         </div>
+      </div>
+        
       </BrowserRouter>
     </div>
   );
