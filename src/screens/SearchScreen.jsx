@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useDebounce } from "use-debounce";
-
 import axios from 'axios';
 
 import SearchResultContainer from '../containers/SearchResult/SearchResultContainer'
+import SearchTopGenres from '../containers/SearchTopGrenres/SearchTopGenres'
 
 import right_chevron_circle from '../img/chevron_circle_right_icon.svg'
 import left_chevron_circle from '../img/chevron_circle_left_icon.svg'
 import search_icon_black from '../img/search_icon_black.svg'
 import cancel_close_delete_icon from '../img/cancel_close_delete_icon.svg'
 
-// import Loading from '../containers/Spinner/Loading'
-import SearchTopGenres from '../containers/SearchTopGrenres/SearchTopGenres'
+
 import { BASE_URL } from '../utils/consts'
 
 const initalText = " ";
