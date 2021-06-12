@@ -73,7 +73,7 @@ function SearchScreen(props) {
   return (
     <section>
       <div className="container px-5 mx-auto">
-        <div className="flex flex-row space-x-5 pt-3">
+        <div className="flex flex-row space-x-5 pt-3 ">
 
           <img
             src={left_chevron_circle}
@@ -86,7 +86,7 @@ function SearchScreen(props) {
             className="w-8 my-3 rounded-full bg-gray-400 cursor-not-allowed hover:bg-gray-600 cursor-pointer"
             alt="right_chevron" />
 
-          <div className="relative sm:w-4/12">
+          <div className="relative w-full md:w-4/12">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
               <img src={search_icon_black} alt="search_icon_black" />
             </span>

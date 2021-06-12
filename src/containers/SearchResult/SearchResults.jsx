@@ -11,8 +11,8 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
 
   return (
     <>
-      <div className="flex flex-row space-x-4">
-        <div className="w-2/5 p-4">
+      <div className="flex md:flex-row flex-col md:space-x-4">
+        <div className="md:w-2/5 w-full p-4">
           <h1 className="text-left text-gray-100 text-2xl font-bold pb-2">Top result</h1>
           <div className={` bg-gradient-to-b ${getGenreGradientColor(topResult.genres[0])} bg-gray-900 p-5 rounded-lg hover:bg-gray-800 cursor-pointer`} onClick={() => handleClick(topResult.collectionId)}>
 
@@ -38,7 +38,7 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
 
         </div>
         {/*  */}
-        <div className="w-3/5 p-4">
+        <div className="md:w-3/5 w-full p-4">
           <h1 className="text-left text-gray-100 text-2xl font-bold pb-2">Episodes</h1>
           {
             episodes &&
@@ -58,11 +58,11 @@ const SearchResults = ({ podcastResults, episodeResults, activeSearchText, handl
         </div>
       </div>
 
-      <h1 className="text-left text-gray-100 text-2xl font-bold pb-5">Search result for '{activeSearchText}'</h1>
+      <h1 className="text-left text-gray-100 text-2xl font-bold pb-5">Podcast that match '{activeSearchText}'</h1>
       <div className="flex flex-wrap flex-row">
         {otherPodcasts.map(podcast => (
 
-          <div className="xl:w-1/5 md:w-1/2 p-1" key={podcast.collectionId} >
+          <div className="xl:w-1/5 md:w-1/3 sm:w-1/3 w-1/3 p-1" key={podcast.collectionId} >
             <div onClick={() => handleClick(podcast.collectionId)}>
               <div className="p-3 bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-lg">
 
