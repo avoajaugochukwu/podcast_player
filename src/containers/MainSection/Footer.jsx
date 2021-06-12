@@ -18,11 +18,11 @@ const Footer = () => {
         <p className="py-2 text-gray-500 dark:text-white sm:py-0">MIT License</p>
 
         <div className="flex -mx-2">
-          <a href="http://github.com" className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Reddit">
+          <a href="https://github.com/avoajaugochukwu/podcast_player" className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Reddit">
             Github
           </a>
 
-          <a href="htttp://twitter.com" className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
+          <a href="https://twitter.com/avoajacharles" className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
             aria-label="Facebook">
             Twitter
           </a>

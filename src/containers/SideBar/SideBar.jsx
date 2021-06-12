@@ -45,17 +45,23 @@ const SideBar = () => {
               </Link>
             </div>
             <div className="text-left">
-              <div>
-                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-800" activeClassName="bg-gray-800" exact to="/">
-                  <img src={home_logo} alt='home_icon' />
-                  <span className="ml-4">Home</span>
-                </NavLink>
-              </div>
-              <div>
-                <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-800" activeClassName="bg-gray-800" exact to="/search">
-                  <img src={search_icon} alt='search_icon' />
-                  <span className="ml-4">Search</span>
-                </NavLink>
+              <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-800" activeClassName="bg-gray-800" exact to="/">
+                <img src={home_logo} alt='home_icon' />
+                <span className="ml-4">Home</span>
+              </NavLink>
+              <NavLink className="flex mx-2 my-1 rounded p-2 hover:bg-gray-800" activeClassName="bg-gray-800" exact to="/search">
+                <img src={search_icon} alt='search_icon' />
+                <span className="ml-4">Search</span>
+              </NavLink>
+              <div className="mt-5 pl-4">
+                <a href="https://github.com/avoajaugochukwu/podcast_player" className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Reddit">
+                  Github
+                </a>
+
+                <a href="https://twitter.com/avoajacharles" className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
+                  aria-label="Facebook">
+                  Twitter
+                </a>
               </div>
             </div>
           </aside>
